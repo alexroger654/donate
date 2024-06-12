@@ -59,16 +59,19 @@ async function handleCheckUser(email, password) {
     `${process.env.NEXT_PUBLIC_URL}/user/login`,
     "======================================================="
   );
-  const res = await fetch(`http://localhost:5000/api/v1/user/login`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email,
-      password,
-    }),
-  });
+  const res = await fetch(
+    `https://donate-server-2-git-main-alexroger654s-projects.vercel.app/api/v1/user/login`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    }
+  );
 
   console.log(res.status, "------------------------");
 
