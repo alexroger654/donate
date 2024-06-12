@@ -80,6 +80,7 @@ export default function MainPage() {
                 <div className="grid grid-cols-3 gap-5  ">
                   {categoryData?.map((item) => (
                     <div
+                      onClick={() => setSelectedCategory(item?.name)}
                       key={item?._id}
                       className="border rounded-full     mb-6 h-20 w-20 cursor-pointer   mx-auto bg-white transform duration-700 transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]   "
                     >
