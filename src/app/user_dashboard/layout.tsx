@@ -65,15 +65,7 @@ export default function UserLayout({
                   Profile
                 </Link>
               </li>
-              <li className="mt-8">
-                <Link
-                  href="/user_dashboard/my_impacts"
-                  className="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
-                >
-                  {" "}
-                  My Impacts
-                </Link>
-              </li>
+
               <li className="mt-8">
                 <Link
                   href="/user_dashboard/my_transactions"

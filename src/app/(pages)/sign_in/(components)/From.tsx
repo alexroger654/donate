@@ -5,6 +5,7 @@ import { createData } from "@/shared/commonFunctions";
 import React, { useState } from "react";
 import { toast } from "sonner";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function From() {
   // =============== states =========
@@ -13,7 +14,7 @@ export default function From() {
     email: "",
     password: "",
   });
-
+  const router = useRouter();
   async function handleSignIn() {
     setLoading(true);
     try {
@@ -29,8 +30,7 @@ export default function From() {
         toast.error("invalid credentials");
       } else {
         toast.success("Successfully signed in!");
-        // Optionally, you can redirect the user to a different page
-        // For example: router.push("/dashboard");
+        router?.push("/");
       }
     } catch (error) {
       toast.error("An error occurred during sign in.");

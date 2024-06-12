@@ -1,42 +1,58 @@
-import { ChangeEvent, Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+// import { XIcon } from "@heroicons/react/outline";
+// Assuming you're using Heroicons
 import { HiXMark } from "react-icons/hi2";
-import { createData } from "@/shared/commonFunctions";
+import { createData, getData, updateData } from "@/shared/commonFunctions";
+import { ICategory } from "@/shared/interfaces/category.interface";
+import Loading from "@/components/Loading";
 import { UploadFileAndGetUrl } from "@/shared/uploadFile";
 import { v4 as uuid } from "uuid";
+import { IGiftCardTemplate } from "@/shared/interfaces/GiftCardTemplate.interface";
 
 interface IProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
-  refetch: () => void;
+  data: IGiftCardTemplate;
+  refetch: any;
 }
 
-////////////////// component ///////////////////////////
-const CreateCategory: React.FC<IProps> = ({ isOpen, setIsOpen, refetch }) => {
+const UpdateModal: React.FC<IProps> = ({
+  isOpen,
+  setIsOpen,
+  data,
+  refetch,
+}) => {
   const closeModal = () => setIsOpen(false);
-  const [name, setName] = useState("");
-  const [image, setImage] = useState<any>("");
+  const [categoryData, setCategoryData] = useState<ICategory[]>([]);
+  const [amount, setAmount] = useState(0);
+  const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
+  const [name, setName] = useState("");
+  const [image, setImage] = useState<any>("");
 
   async function handleCreate() {
-    setLoading(true);
     let imageUrl;
     if (image) {
       imageUrl = await handleUpload("categoryImages");
+    } else {
+      imageUrl = data?.image_url;
     }
 
-    await createData(
+    await updateData(
       {
-        name,
-        description,
+        gift_card_name: name,
+        gift_card_amount: amount,
+        category: category,
         image_url: imageUrl,
+        description: description,
       },
-      "category",
-      setLoading,
-      refetch
+      "gift_card_template",
+      data?._id,
+      setLoading
     );
-    setLoading(false);
+    refetch();
     setIsOpen(false);
   }
 
@@ -53,7 +69,23 @@ const CreateCategory: React.FC<IProps> = ({ isOpen, setIsOpen, refetch }) => {
     }
   }
 
-  //================= render ======================
+  useEffect(() => {
+    getData(setCategoryData, "category/list", setLoading);
+  }, []);
+  useEffect(() => {
+    if (data) {
+      setAmount(parseInt(data?.gift_card_amount));
+      setDescription(data?.description as string);
+      setCategory(data?.category);
+      setName(data?.gift_card_name);
+    }
+  }, [data]);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  //================== render
   return (
     <>
       {/* Modal */}
@@ -91,24 +123,63 @@ const CreateCategory: React.FC<IProps> = ({ isOpen, setIsOpen, refetch }) => {
                 {/* Modal header */}
                 <div className="flex justify-between items-center px-6 py-4 bg-gray-white border-b text-black">
                   <Dialog.Title className="text-lg font-bold">
-                    Create Category
+                    Update Gift Cards
                   </Dialog.Title>
                   <button onClick={closeModal} className="text-black">
                     <HiXMark className="w-6 h-6" aria-hidden="true" />
                   </button>
                 </div>
-                <div className="lg:px-8 px-3 space-y-6 mt-10">
+                <div className="lg:px-8 px-3 grid lg:grid-cols-2 gap-5 mt-10">
                   <div className="">
-                    <label className="block text-sm font-medium mb-2 dark:text-white">
+                    <label
+                      //   for="input-label"
+                      className="block text-sm font-medium mb-2 dark:text-white"
+                    >
                       Name
                     </label>
                     <input
-                      type="text"
-                      defaultValue={name}
-                      onChange={(e: any) => setName(e.target.value as string)}
+                      type="email"
                       id="input-label"
+                      defaultValue={name}
+                      onChange={(e) => setName(e.target.value)}
                       className="py-3 border border-gray-300 rounded-xl px-4 w-full"
-                      placeholder="name"
+                    />
+                  </div>
+                  <div className="">
+                    <label className="block text-sm font-medium mb-2 dark:text-white">
+                      Category
+                    </label>
+                    <select
+                      defaultValue={category}
+                      onChange={(e) => setCategory(e.target.value)}
+                      className="py-3 border border-gray-300 rounded-xl px-4 w-full"
+                    >
+                      <option>Open this select menu</option>
+                      {categoryData.map((item) => (
+                        <option
+                          className="capitalize"
+                          key={item._id}
+                          value={item.name}
+                        >
+                          {item.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="">
+                    <label
+                      //   for="input-label"
+                      className="block text-sm font-medium mb-2 dark:text-white"
+                    >
+                      Price
+                    </label>
+                    <input
+                      type="email"
+                      id="input-label"
+                      defaultValue={amount}
+                      onChange={(e) => setAmount(parseFloat(e.target.value))}
+                      className="py-3 border border-gray-300 rounded-xl px-4 w-full"
+                      placeholder="you@site.com"
                     />
                   </div>
                   <div>
@@ -118,12 +189,11 @@ const CreateCategory: React.FC<IProps> = ({ isOpen, setIsOpen, refetch }) => {
 
                     <input
                       type="file"
-                      // defaultValue={image}
                       onChange={(e: any) => setImage(e.target.files[0])}
                       className="block w-full px-3 py-3 mt-2 text-sm text-gray-600 bg-white border border-gray-300 rounded-xl file:bg-gray-200 file:text-gray-700 file:text-sm file:px-4 file:py-1 file:border-none file:rounded-full dark:file:bg-gray-800 dark:file:text-gray-200 dark:text-gray-300 placeholder-gray-400/70 dark:placeholder-gray-500 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:focus:border-blue-300"
                     />
                   </div>
-                  <div className="">
+                  <div className=" col-span-full">
                     <label
                       //   for="input-label"
                       className="block text-sm font-medium mb-2 dark:text-white"
@@ -132,20 +202,17 @@ const CreateCategory: React.FC<IProps> = ({ isOpen, setIsOpen, refetch }) => {
                     </label>
                     <textarea
                       defaultValue={description}
-                      onChange={(e: any) =>
-                        setDescription(e.target.value as string)
-                      }
+                      onChange={(e) => setDescription(e.target.value)}
                       className="py-3 border border-gray-300 rounded-xl px-4 w-full"
-                      placeholder="description"
+                      placeholder="...."
                     />
                   </div>
 
                   <button
-                    disabled={loading}
                     onClick={handleCreate}
                     className="bg-primary px-8 py-3 rounded-lg font-bold"
                   >
-                    {loading ? "loading" : "create"}
+                    Update
                   </button>
                 </div>
 
@@ -160,4 +227,4 @@ const CreateCategory: React.FC<IProps> = ({ isOpen, setIsOpen, refetch }) => {
   );
 };
 
-export default CreateCategory;
+export default UpdateModal;

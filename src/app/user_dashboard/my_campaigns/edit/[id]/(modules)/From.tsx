@@ -25,6 +25,7 @@ import { HiOutlineXCircle, HiPlus } from "react-icons/hi2";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { Products } from "./Products";
 import { useSession } from "next-auth/react";
+import TextEditor from "@/components/TextEditor";
 
 interface ISelectedProduct {
   product_id: string;
@@ -44,6 +45,7 @@ export default function From() {
   const [productKitData, setProductKitData] = useState<IProductKit[]>([]);
   const [productOptions, setProductOptions] = useState<any>([]);
   const [productKitOptions, setProductKitOptions] = useState<any>({});
+  const [editorState, setEditorState] = useState("");
   const [selectedProductKit, setSelectedProductKit] = useState<any>([]);
   const [selectedProducts, setSelectedProducts] = useState<ISelectedProduct[]>(
     []
@@ -89,6 +91,7 @@ export default function From() {
     const dataWithProduct = {
       ...campaignData,
       products: selectedProducts,
+      campaign_description: editorState,
       user_id: session?.user?.id,
     };
 
@@ -104,8 +107,6 @@ export default function From() {
     getData(setCategoryData, "category/list", setLoading);
     getData(setCampaignData, `campaign/list?id=${param?.id}`, setLoading);
   }, []);
-
-  console.log(campaignData, "-----------------------------00000");
 
   //setting options ==============================
 
@@ -123,6 +124,11 @@ export default function From() {
       setProductKitOptions(opt);
     }
   }, [productData?.length]);
+  useEffect(() => {
+    if (campaignData?.campaign_description) {
+      setEditorState(campaignData?.campaign_description);
+    }
+  }, [campaignData]);
 
   // ===============================
 
@@ -623,11 +629,9 @@ export default function From() {
               {/* <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
                 <LuLocateFixed size={20} />
               </div> */}
-              <textarea
-                id="default-search"
-                rows={5}
-                defaultValue={campaignData.documents}
-                className="w-full block  pr-5 pl-12 py-2.5 text-lg leading-7 font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none"
+              <TextEditor
+                editorState={editorState}
+                setEditorState={setEditorState}
               />
             </div>
           </div>

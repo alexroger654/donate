@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import CreateCategory from "./(modules)/components/CreateModal";
-import { getData } from "@/shared/commonFunctions";
+import { deleteData, getData } from "@/shared/commonFunctions";
 import Loading from "@/components/Loading";
 import { ICategory } from "@/shared/interfaces/category.interface";
+import UpdateModal from "./(modules)/components/UpdateModal";
 
 const tableItems = [
   {
@@ -53,8 +54,10 @@ const tableItems = [
 export default function page() {
   // states ============================
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isUpdateModalOpen, setUpdateIsModalOpen] = useState(false);
   const [categoryData, setCategoryData] = useState<ICategory[]>([]);
   const [loading, setLoading] = useState(false);
+  const [currentData, setCurrentData] = useState<any>("");
 
   // getting and setting data===========
   useEffect(() => {
@@ -89,7 +92,7 @@ export default function page() {
         <div className="mt-3 md:mt-0">
           <button
             onClick={() => setIsModalOpen(true)}
-            className="inline-block px-4 py-2 text-black duration-150 font-medium bg-primary rounded-lg hover:bg-primary/70 active:bg-indigo-700 md:text-sm"
+            className="inline-block px-4 py-2 text-white duration-150 font-medium bg-primary rounded-lg  md:text-sm"
           >
             Add new Category
           </button>
@@ -121,14 +124,20 @@ export default function page() {
                     {item.description}
                   </td>
                   <td className="text-right px-6 whitespace-nowrap">
-                    <a
-                      href="javascript:void()"
+                    <button
+                      onClick={() => {
+                        setCurrentData(item);
+                        setUpdateIsModalOpen(true);
+                      }}
                       className="py-2 px-3 font-medium text-primary hover:text-primary/70 duration-150 hover:bg-gray-50 rounded-lg"
                     >
                       Edit
-                    </a>
+                    </button>
                     <button
-                      // href="javascript:void()"
+                      onClick={() => {
+                        deleteData("category", item?._id, setLoading);
+                        refetch();
+                      }}
                       className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg"
                     >
                       Delete
@@ -147,6 +156,12 @@ export default function page() {
         isOpen={isModalOpen}
         setIsOpen={setIsModalOpen}
         refetch={refetch}
+      />
+      <UpdateModal
+        isOpen={isUpdateModalOpen}
+        setIsOpen={setUpdateIsModalOpen}
+        refetch={refetch}
+        data={setCurrentData}
       />
     </div>
   );

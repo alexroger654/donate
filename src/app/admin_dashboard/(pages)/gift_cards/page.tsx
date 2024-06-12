@@ -5,16 +5,24 @@ import { getData } from "@/shared/commonFunctions";
 import { ICategory } from "@/shared/interfaces/category.interface";
 import { IGiftCard } from "@/shared/interfaces/giftcard.interface";
 import { IGiftCardTemplate } from "@/shared/interfaces/GiftCardTemplate.interface";
+import UpdateModal from "./UpdateModal";
 
 export default function page() {
   // states ============================
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [giftCardData, setGiftCardData] = useState<IGiftCardTemplate[]>([]);
   const [loading, setLoading] = useState(false);
+  const [currentData, setCurrentData] = useState<any>("");
 
   // getting and setting data===========
-  useEffect(() => {
+
+  async function fetchData() {
     getData(setGiftCardData, "gift_card_template/list", setLoading);
+  }
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   return (
@@ -32,7 +40,7 @@ export default function page() {
         <div className="mt-3 md:mt-0">
           <button
             onClick={() => setIsModalOpen(true)}
-            className="inline-block px-4 py-2 text-black duration-150 font-medium bg-primary rounded-lg hover:bg-primary/70 active:bg-indigo-700 md:text-sm"
+            className="inline-block px-4 py-2 text-white duration-150 font-medium bg-primary rounded-lg  md:text-sm"
           >
             Add new Gift Cards
           </button>
@@ -71,12 +79,15 @@ export default function page() {
                 </td>
 
                 <td className="text-right px-6 whitespace-nowrap">
-                  <a
-                    href="javascript:void()"
+                  <button
+                    onClick={() => {
+                      setCurrentData(item);
+                      setIsUpdateModalOpen(true);
+                    }}
                     className="py-2 px-3 font-medium text-primary hover:text-primary/70 duration-150 hover:bg-gray-50 rounded-lg"
                   >
                     Edit
-                  </a>
+                  </button>
                   <button
                     // href="javascript:void()"
                     className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg"
@@ -90,7 +101,17 @@ export default function page() {
         </table>
       </div>
 
-      <CreateCategory isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
+      <CreateCategory
+        isOpen={isModalOpen}
+        setIsOpen={setIsModalOpen}
+        refetch={fetchData}
+      />
+      <UpdateModal
+        isOpen={isUpdateModalOpen}
+        setIsOpen={setIsUpdateModalOpen}
+        data={currentData}
+        refetch={fetchData}
+      />
     </div>
   );
 }

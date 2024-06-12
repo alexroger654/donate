@@ -5,5 +5,6 @@ export interface IGiftCardTemplate {
   gift_card_amount: string;
   category: string;
   createdAt: string;
-  imageUrl?: string;
+  image_url?: string;
+  description?: string;
 }

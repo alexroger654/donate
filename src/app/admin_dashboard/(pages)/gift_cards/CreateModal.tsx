@@ -6,31 +6,57 @@ import { HiXMark } from "react-icons/hi2";
 import { createData, getData } from "@/shared/commonFunctions";
 import { ICategory } from "@/shared/interfaces/category.interface";
 import Loading from "@/components/Loading";
+import { UploadFileAndGetUrl } from "@/shared/uploadFile";
+import { v4 as uuid } from "uuid";
 
 interface IProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
+  refetch: any;
 }
 
-const CreateCategory: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
+const CreateCategory: React.FC<IProps> = ({ isOpen, setIsOpen, refetch }) => {
   const closeModal = () => setIsOpen(false);
   const [categoryData, setCategoryData] = useState<ICategory[]>([]);
   const [amount, setAmount] = useState(0);
   const [category, setCategory] = useState("");
+  const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
+  const [image, setImage] = useState<any>("");
 
   async function handleCreate() {
+    let imageUrl;
+    if (image) {
+      imageUrl = await handleUpload("categoryImages");
+    }
+
     await createData(
       {
         gift_card_name: name,
         gift_card_amount: amount,
         category: category,
+        image_url: imageUrl,
+        description: description,
       },
       "gift_card_template",
-      setLoading
+      setLoading,
+      refetch
     );
     setIsOpen(false);
+  }
+
+  async function handleUpload(folderName: string) {
+    setLoading(true);
+
+    try {
+      let uploadResult = await UploadFileAndGetUrl(image, uuid(), folderName);
+      setLoading(false);
+      return uploadResult;
+    } catch (error: any) {
+      console.error("Failed to upload image:", error.message);
+      setLoading(false);
+    }
   }
 
   useEffect(() => {
@@ -85,7 +111,7 @@ const CreateCategory: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
                     <HiXMark className="w-6 h-6" aria-hidden="true" />
                   </button>
                 </div>
-                <div className="lg:px-8 px-3 space-y-6 mt-10">
+                <div className="lg:px-8 px-3 grid lg:grid-cols-2 gap-5 mt-10">
                   <div className="">
                     <label
                       //   for="input-label"
@@ -145,7 +171,22 @@ const CreateCategory: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
 
                     <input
                       type="file"
+                      onChange={(e: any) => setImage(e.target.files[0])}
                       className="block w-full px-3 py-3 mt-2 text-sm text-gray-600 bg-white border border-gray-300 rounded-xl file:bg-gray-200 file:text-gray-700 file:text-sm file:px-4 file:py-1 file:border-none file:rounded-full dark:file:bg-gray-800 dark:file:text-gray-200 dark:text-gray-300 placeholder-gray-400/70 dark:placeholder-gray-500 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:focus:border-blue-300"
+                    />
+                  </div>
+                  <div className=" col-span-full">
+                    <label
+                      //   for="input-label"
+                      className="block text-sm font-medium mb-2 dark:text-white"
+                    >
+                      Description
+                    </label>
+                    <textarea
+                      defaultValue={description}
+                      onChange={(e) => setDescription(e.target.value)}
+                      className="py-3 border border-gray-300 rounded-xl px-4 w-full"
+                      placeholder="...."
                     />
                   </div>
 

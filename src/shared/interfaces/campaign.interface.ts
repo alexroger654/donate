@@ -15,8 +15,8 @@ export interface ICampaign {
   raised_amount: number;
 
   location: string;
-  start_date: Date;
-  end_date: Date;
+  start_date: string;
+  end_date: string;
   product_ids: string[];
   product_kit_ids: string[];
   documents: string[];

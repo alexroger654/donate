@@ -2,6 +2,7 @@
 
 import Loading from "@/components/Loading";
 import { createData } from "@/shared/commonFunctions";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "sonner";
 
@@ -14,10 +15,14 @@ export default function From() {
     password: "",
   });
 
+  //hooks
+  const router = useRouter();
+
   async function handleCreate() {
     const result = await createData(userData, "user", setLoading);
     if (result) {
-      toast.success("Account Created successfully");
+      toast.success("Account Created successfully Sign in to Continue");
+      router?.push("/sign_in");
     }
   }
 

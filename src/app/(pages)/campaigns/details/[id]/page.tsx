@@ -28,11 +28,14 @@ export default function page() {
         <div className="p-6 lg:max-w-7xl max-w-2xl lg:mx-auto">
           <div className="grid items-start grid-cols-1 lg:grid-cols-5 gap-12">
             <div className="lg:col-span-3 w-full lg:sticky top-0 text-center">
-              <div className="bg-gray-800 px-4 py-10 rounded-xl">
+              <div className=" rounded-xl">
                 <img
-                  src="https://readymadeui.com/images/coffee2.webp"
+                  src={
+                    campaignData?.image_url ||
+                    "https://dkprodimages.gumlet.io/campaign/cover/Support-Srotoshwini-Trust1150894626.jpeg?format=webp&w=700&dpr=1.0"
+                  }
                   alt="Product"
-                  className="w-4/5 rounded object-cover mx-auto"
+                  className="w-full rounded-xl object-cover mx-auto"
                 />
               </div>
 
@@ -62,16 +65,21 @@ export default function page() {
               <div className="flex flex-wrap gap-4 mt-8">
                 <button
                   type="button"
-                  className="min-w-[200px] px-4 py-3 bg-primary  text-black text-sm font-semibold rounded"
+                  className="min-w-[200px] px-4 py-3 bg-primary text-white  text-sm font-semibold rounded"
                 >
                   Donate Now
                 </button>
               </div>
 
               <div className="mt-8">
-                <div className="mt-8">
-                  <h3 className="text-lg font-semibold ">Products</h3>
-                </div>
+                {campaignData?.products?.length ? (
+                  <div className="mt-8">
+                    <h3 className="text-lg font-semibold ">Products</h3>
+                  </div>
+                ) : (
+                  <></>
+                )}
+
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
                   {campaignData?.products?.map((item: any, i: number) => (
                     <div
@@ -105,7 +113,7 @@ export default function page() {
                               onClick={() => {
                                 setAddedProduct([...addedProduct, item]);
                               }}
-                              className="w-full rounded-lg py-0.5 text-center text-xs bg-primary"
+                              className="w-full rounded-lg py-0.5 text-center text-white text-xs bg-primary"
                             >
                               Donate Now
                             </button>
@@ -119,7 +127,12 @@ export default function page() {
 
               <div className="mt-8">
                 <div className="mt-8">
-                  <h3 className="text-lg font-semibold ">Donate</h3>
+                  {addedProduct?.length ? (
+                    <h3 className="text-lg font-semibold ">Donate</h3>
+                  ) : (
+                    <></>
+                  )}
+
                   {addedProduct?.map((item: any, i: number) => (
                     <div
                       key={i}

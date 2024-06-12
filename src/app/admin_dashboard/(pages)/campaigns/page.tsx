@@ -9,7 +9,7 @@ import { ICampaign } from "@/shared/interfaces/campaign.interface";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { LuEye } from "react-icons/lu";
+import { LuEye, LuTrash } from "react-icons/lu";
 import { toast } from "sonner";
 import RejectModal from "./(components)/RejectModal";
 
@@ -92,7 +92,7 @@ export default function page() {
                           <td className=" whitespace-nowrap">
                             <div className="flex items-center">
                               <div className="font-medium text-gray-800">
-                                {item?.campaign_name?.slice(0, 70)}
+                                {item?.campaign_name?.slice(0, 50)}
                               </div>
                             </div>
                           </td>
@@ -113,6 +113,7 @@ export default function page() {
                           </td>
                           <td className=" flex items-center justify-center space-x-2">
                             <Link
+                              target="_blank"
                               href={`/campaigns/details/${item?._id}`}
                               className=""
                             >
@@ -120,13 +121,16 @@ export default function page() {
                                 <LuEye />
                               </Button>
                             </Link>
-                            <Button
-                              onClick={() => handleEventUpdate(item?._id)}
-                              size="sm"
-                              className="bg-green-500 text-white hover:bg-green-400"
-                            >
-                              Approve
-                            </Button>
+                            {item.status !== "active" && (
+                              <Button
+                                onClick={() => handleEventUpdate(item?._id)}
+                                size="sm"
+                                className="bg-green-500 text-white hover:bg-green-400"
+                              >
+                                Approve
+                              </Button>
+                            )}
+
                             <Dialog>
                               <DialogTrigger asChild>
                                 <Button
@@ -141,6 +145,15 @@ export default function page() {
                                 handleEventUpdate={handleEventUpdate}
                               />
                             </Dialog>
+                            <Button
+                              // onClick={() => {
+                              //   deleteData("category", item?._id, setLoading);
+                              //   refetch();
+                              // }}
+                              size="icon"
+                            >
+                              <LuTrash />
+                            </Button>
                           </td>
                         </tr>
                       ))}

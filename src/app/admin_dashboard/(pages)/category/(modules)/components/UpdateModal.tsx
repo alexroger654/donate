@@ -1,18 +1,25 @@
-import { ChangeEvent, Fragment, useState } from "react";
+import { ChangeEvent, Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { HiXMark } from "react-icons/hi2";
-import { createData } from "@/shared/commonFunctions";
+import { createData, getData, updateData } from "@/shared/commonFunctions";
 import { UploadFileAndGetUrl } from "@/shared/uploadFile";
 import { v4 as uuid } from "uuid";
+import { ICategory } from "@/shared/interfaces/category.interface";
 
 interface IProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   refetch: () => void;
+  data: any;
 }
 
 ////////////////// component ///////////////////////////
-const CreateCategory: React.FC<IProps> = ({ isOpen, setIsOpen, refetch }) => {
+const UpdateModal: React.FC<IProps> = ({
+  isOpen,
+  setIsOpen,
+  refetch,
+  data,
+}) => {
   const closeModal = () => setIsOpen(false);
   const [name, setName] = useState("");
   const [image, setImage] = useState<any>("");
@@ -24,18 +31,21 @@ const CreateCategory: React.FC<IProps> = ({ isOpen, setIsOpen, refetch }) => {
     let imageUrl;
     if (image) {
       imageUrl = await handleUpload("categoryImages");
+    } else {
+      imageUrl = data?.image_url;
     }
 
-    await createData(
+    await updateData(
       {
         name,
         description,
         image_url: imageUrl,
       },
       "category",
-      setLoading,
-      refetch
+      data?._id,
+      setLoading
     );
+    refetch();
     setLoading(false);
     setIsOpen(false);
   }
@@ -52,6 +62,13 @@ const CreateCategory: React.FC<IProps> = ({ isOpen, setIsOpen, refetch }) => {
       setLoading(false);
     }
   }
+
+  useEffect(() => {
+    if (data) {
+      setName(data.name);
+      setDescription(data.description);
+    }
+  }, [data]);
 
   //================= render ======================
   return (
@@ -160,4 +177,4 @@ const CreateCategory: React.FC<IProps> = ({ isOpen, setIsOpen, refetch }) => {
   );
 };
 
-export default CreateCategory;
+export default UpdateModal;

@@ -21,7 +21,7 @@ export default function page() {
   useEffect(() => {
     getData(
       setCampaignData,
-      `campaign/list?userId=${session?.user?.id}`,
+      `campaign/list?user=${session?.user?.id}`,
       setLoading
     );
   }, [session?.user?.id]);
@@ -49,7 +49,7 @@ export default function page() {
                     <img
                       src={item?.image_url}
                       alt="perfume bottle image"
-                      className="mx-auto lg:h-[180px]"
+                      className="mx-auto lg:h-[180px] rounded-2xl"
                     />
                     <div className="absolute top-2 left-2">
                       <Badge
@@ -94,7 +94,7 @@ export default function page() {
                             ]}
                             max={100}
                             step={1}
-                            className={cn(`w-[60%] my-6`)}
+                            className={cn(`w-[100%] my-6`)}
                           />
                         </div>
                         <div>

@@ -13,6 +13,7 @@ import {
   LuPhoneCall,
   LuUsers2,
 } from "react-icons/lu";
+import { v4 as uuid } from "uuid";
 import { createData, getData } from "@/shared/commonFunctions";
 import Loading from "@/components/Loading";
 import { IProduct } from "@/shared/interfaces/product.interface";
@@ -27,6 +28,7 @@ import { Products } from "./Products";
 import { useSession } from "next-auth/react";
 import CkTextEditor from "@/components/TextEditor";
 import TextEditor from "@/components/TextEditor";
+import { UploadFileAndGetUrl } from "@/shared/uploadFile";
 
 interface ISelectedProduct {
   product_id: string;
@@ -48,6 +50,7 @@ export default function From() {
   const [productKitOptions, setProductKitOptions] = useState<any>({});
   const [selectedProductKit, setSelectedProductKit] = useState<any>([]);
   const [editorState, setEditorState] = useState("");
+  const [image, setImage] = useState<any>("");
   const [selectedProducts, setSelectedProducts] = useState<ISelectedProduct[]>(
     []
   );
@@ -86,20 +89,41 @@ export default function From() {
   const router = useRouter();
   const { data: session }: any = useSession();
 
-  // ============= handle create =============
+  // ============= handle create ==============
   async function handleCreate() {
+    setLoading(true);
+    let imageUrl;
+
+    if (image) {
+      imageUrl = await handleUpload("campaignImages");
+    }
+
     const dataWithProduct = {
       ...campaignData,
       products: selectedProducts,
       campaign_description: editorState,
       user_id: session?.user?.id,
+      image_url: imageUrl,
     };
 
     await createData(dataWithProduct, "campaign", setLoading);
+    setLoading(false);
     toast.success("campaign created");
-    router.push("/user_dashboard/my_campaigns");
+    router.push("/");
   }
 
+  async function handleUpload(folderName: string) {
+    setLoading(true);
+
+    try {
+      let uploadResult = await UploadFileAndGetUrl(image, uuid(), folderName);
+      setLoading(false);
+      return uploadResult;
+    } catch (error: any) {
+      console.error("Failed to upload image:", error.message);
+      setLoading(false);
+    }
+  }
   //=========== fetching data ====================
   useEffect(() => {
     getData(setProductData, "product/list", setLoading);
@@ -434,6 +458,23 @@ export default function From() {
                     campaign_name: e.target.value,
                   })
                 }
+                className="w-full block h-12 pr-5 pl-12 py-2.5 text-lg leading-7 font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none"
+                placeholder="Campaign Name"
+              />
+            </div>
+          </div>
+          <div className="relative mb-8">
+            <label className="flex  items-center mb-2 text-gray-600 text-base leading-6 font-medium">
+              Campaign Image{" "}
+            </label>
+            <div className="relative text-gray-500 focus-within:text-gray-900">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
+                <LuBookOpen size={20} />
+              </div>
+              <input
+                type="file"
+                id="default-search"
+                onChange={(e: any) => setImage(e.target.files[0])}
                 className="w-full block h-12 pr-5 pl-12 py-2.5 text-lg leading-7 font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none"
                 placeholder="Campaign Name"
               />

@@ -1,39 +1,59 @@
 import React from "react";
 import { Button } from "../ui/button";
+import { url } from "inspector";
 
 export default function Hero() {
   return (
-    <div className="h-screen flex items-center bg-black/60 -mt-24 relative">
-      <div className="w-full h-full absolute top-0 left-0 -z-20 ">
-        <img src="/assets/bgImage2.jpg" alt="" />
-      </div>
-
-      <div className="px-4 mx-auto mt-16 mb-16 max-w-7xl sm:mt-24">
-        <div className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight text-gray-200 sm:text-5xl md:text-6xl font-title">
-            <span className="block">
-              Make a Difference Today <br />
-              Your Contribution
-            </span>
-            <span className="block pt-2">Can Transform Lives</span>
+    <section
+      style={{
+        backgroundImage: `url('/assets/home/home-banner-bg.png')`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+      className="w-full h-[110vh] max-h-[700px]"
+    >
+      <div className="w-full max-w-screen-xl  mx-auto grid grid-cols-1 lg:grid-cols-2 h-full px-4">
+        {/* text section =========================== */}
+        <div className=" grid place-content-center h-full mt-8 lg:mt-0">
+          <h1 className="font-bold text-primary-foreground text-4xl lg:text-7xl leading-tight  ">
+            <span className="relative px-1">
+              <div className="absolute inset-x-0 bottom-3 h-5 transform -skew-x-12 bg-secondary " />
+              <span className="relative inline-block ">Share</span>
+            </span>{" "}
+            your love to{" "}
+            <span className="font-normal">Make someone’s life better</span>
           </h1>
-          <p className="max-w-md mx-auto mt-3 text-base text-gray-300 sm:text-lg md:mt-5 md:text-xl md:max-w-6xl">
-            Your Generosity Can Change Lives – Donate Now and Help Build a
-            Brighter Future
+          <p className="text-lg text-muted-foreground mt-8">
+            Lorem Ipsum has been the industry's standard dummy text ever since
+            the 1500s, when an unknown printer took a type and scrambled.
           </p>
-          <div className="max-w-md mx-auto mt-5 sm:flex sm:justify-center md:mt-8">
-            <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-              <Button className="py-6 px-5">Explore Campaign</Button>
-              {/* <a
-                href=""
-                className="block shadow-lg w-full px-8 py-3 text-base font-medium text-gray-200 hover:text-gray-100 bg-gray-100/10 hover:bg-gray-200/30 hover:backdrop-blur-xl backdrop-blur-lg rounded-md md:py-4 md:text-lg md:px-10"
-              >
-                Pre-Book
-              </a> */}
-            </div>
-          </div>
+        </div>
+        <div className=" grid place-content-center h-full relative overflow-hidden">
+          <img
+            src="/assets/home/banner.png"
+            alt=""
+            className="w-full h-[95%]"
+          />
+          <img
+            src="/assets/home/element-1.png"
+            alt=""
+            className="absolute left-10 bottom-56 animate-custom-bounce "
+          />
+          <img
+            src="/assets/home/element-3.png"
+            alt=""
+            style={{ animationDelay: "0.8s" }}
+            className="absolute left-[20%] lg:left-[40%] bottom-10 animate-custom-bounce "
+          />
+          <img
+            style={{ animationDelay: "0.4s" }}
+            src="/assets/home/element-2.png"
+            alt=""
+            className="absolute right-28 top-52 animate-custom-bounce  hidden lg:block"
+          />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
