@@ -10,7 +10,7 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-export default function page() {
+export default function MainPage() {
   const { data: session }: any = useSession();
 
   //states =========================

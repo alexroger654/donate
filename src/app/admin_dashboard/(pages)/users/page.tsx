@@ -1,4 +1,4 @@
-export default function page() {
+export default function MainPage() {
   const tableItems = [
     {
       name: "Solo learn app",

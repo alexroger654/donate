@@ -27,7 +27,10 @@ export default function HelpCards() {
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
           {campaignData?.map((item: any) => (
-            <div className="flex-none w-full sm:w-2/3 lg:w-full lg:flex-1 ">
+            <div
+              key={item?._id}
+              className="flex-none w-full sm:w-2/3 lg:w-full lg:flex-1 "
+            >
               <div className="overflow-hidden bg-white rounded shadow-xl">
                 <div className="aspect-w-4 aspect-h-3">
                   <img

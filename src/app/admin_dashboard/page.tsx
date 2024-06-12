@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 
-function page() {
+function MainPage() {
   return <></>;
 }
 
-export default page;
+export default MainPage;

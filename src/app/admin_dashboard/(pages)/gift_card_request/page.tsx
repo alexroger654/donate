@@ -6,7 +6,7 @@ import { ICategory } from "@/shared/interfaces/category.interface";
 import { IGiftCard } from "@/shared/interfaces/giftcard.interface";
 import { Button } from "@/components/ui/button";
 
-export default function page() {
+export default function MainPage() {
   // states ============================
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [giftCardData, setGiftCardData] = useState<IGiftCard[]>([]);

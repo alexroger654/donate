@@ -7,7 +7,7 @@ import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { LuXCircle } from "react-icons/lu";
 
-export default function page() {
+export default function MainPage() {
   const [campaignData, setCampaignData] = useState<any>({});
   const [loading, setLoading] = useState(false);
   const [addedProduct, setAddedProduct] = useState<any>([]);

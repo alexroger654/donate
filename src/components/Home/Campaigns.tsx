@@ -47,6 +47,7 @@ export default function Campaigns() {
         <div className="grid lg:grid-cols-3 my-12 gap-8">
           {campaignData?.map((item) => (
             <Link
+              key={item?._id}
               href={`/campaigns/details/${item?._id}`}
               className="group flex flex-col bg-white w-full rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]  "
             >

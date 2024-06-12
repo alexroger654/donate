@@ -13,7 +13,7 @@ import { ICategory } from "@/shared/interfaces/category.interface";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 import { LuCalendarCheck, LuUserCircle2 } from "react-icons/lu";
-export default function page() {
+export default function MainPage() {
   const [campaignData, setCampaignData] = useState<ICampaign[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [categoryData, setCategoryData] = useState<ICategory[]>([]);
@@ -102,6 +102,7 @@ export default function page() {
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 ">
                 {campaignData?.map((item) => (
                   <Link
+                    key={item?._id}
                     href={`/campaigns/details/${item?._id}`}
                     className="group flex flex-col bg-white w-full rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]  "
                   >

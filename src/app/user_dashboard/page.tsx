@@ -6,7 +6,7 @@ import { getData } from "@/shared/commonFunctions";
 import Loading from "@/components/Loading";
 import { useSession, signIn, signOut } from "next-auth/react";
 
-export default function page() {
+export default function UserMainPage() {
   const { data: session }: any = useSession();
 
   //states =========================

@@ -30,7 +30,10 @@ export default function LatestCampaigns() {
         </div>
         <div className="grid lg:grid-cols-3 my-12 gap-8">
           {[...Array(6)]?.map((item) => (
-            <div className="group flex flex-col bg-white w-full rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]  ">
+            <div
+              key={item}
+              className="group flex flex-col bg-white w-full rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]  "
+            >
               <div className=" relative">
                 <div className="w-full h-56 overflow-hidden rounded-t-xl ">
                   <img
@@ -43,14 +46,14 @@ export default function LatestCampaigns() {
 
               <div className="p-4 md:p-5 space-y-4 mt-2">
                 <p className=" text-md font-semibold text-primary">
-                  # Child Education
+                  Child Education
                 </p>
                 <h3 className="text-2xl font-semibold text-primary-foreground leading-snug tracking-wide   transition-all duration-500 cursor-pointer group-hover:text-primary">
                   New era for children learning and remove discrimination
                 </h3>
                 <p className="mt- text-md font-semibold text-muted-foreground">
                   Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  the bulk of the card content.
                 </p>
                 <div className="grid grid-cols-2 border-t border-muted py-2">
                   <div className="flex items-center justify-center gap-2 border-r border-muted">

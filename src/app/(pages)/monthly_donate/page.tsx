@@ -2,7 +2,7 @@ import Campaigns from "@/components/Home/Campaigns";
 import PrimaryButton from "@/components/PrimaryButton";
 import React from "react";
 
-export default function page() {
+export default function MainPage() {
   return (
     <>
       <section className="py-5 mx-auto  px-4 sm:px-6 lg:px-8">
@@ -25,7 +25,7 @@ export default function page() {
                       Make an Impact Every Month
                     </h5>
                     <p className="text-gray-600">
-                      Change lives with monthly donations. Donatekart's Social
+                      Change lives with monthly donations. Donatekart Social
                       Investment Plan creates impact every day. Join us to make
                       a difference.
                     </p>

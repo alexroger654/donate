@@ -50,7 +50,7 @@ const tableItems = [
   },
 ];
 
-export default function page() {
+export default function MainPage() {
   // states ============================
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [categoryData, setCategoryData] = useState<ICategory[]>([]);

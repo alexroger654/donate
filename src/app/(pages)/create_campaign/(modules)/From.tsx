@@ -201,6 +201,7 @@ export default function From() {
         >
           {steps.stepsItems.map((item, idx) => (
             <li
+              key={idx}
               onClick={() => setStep({ ...steps, currentStep: idx + 1 })}
               aria-current={steps.currentStep == idx + 1 ? "step" : false}
               className="flex-1 last:flex-none flex gap-x-2 md:items-center cursor-pointer"
@@ -401,8 +402,8 @@ export default function From() {
                   <option className="capitalize" value="select">
                     Select Category
                   </option>
-                  {categoryData?.map((item) => (
-                    <option className="capitalize" value={item.name}>
+                  {categoryData?.map((item, i) => (
+                    <option key={i} className="capitalize" value={item.name}>
                       {item?.name}
                     </option>
                   ))}
@@ -718,7 +719,7 @@ export default function From() {
             </label>
             <div className="grid grid-cols-3 gap-2">
               {selectedProducts?.map((item: any) => (
-                <>
+                <div key={item?._id}>
                   <div className=" p-2 border flex items-center justify-between border-gray-200 rounded-md my-2 ">
                     <p>{item?.product_name}</p>
                     {/* <p
@@ -738,7 +739,7 @@ export default function From() {
                       <HiOutlineXCircle />
                     </p> */}
                   </div>
-                </>
+                </div>
               ))}
             </div>
             <Dialog>

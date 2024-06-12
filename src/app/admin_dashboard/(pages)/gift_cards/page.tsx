@@ -7,7 +7,7 @@ import { IGiftCard } from "@/shared/interfaces/giftcard.interface";
 import { IGiftCardTemplate } from "@/shared/interfaces/GiftCardTemplate.interface";
 import UpdateModal from "./UpdateModal";
 
-export default function page() {
+export default function MainPage() {
   // states ============================
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);

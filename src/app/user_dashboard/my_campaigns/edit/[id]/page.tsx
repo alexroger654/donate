@@ -1,7 +1,7 @@
 import React from "react";
 import From from "./(modules)/From";
 
-export default function page() {
+export default function MainPage() {
   return (
     <>
       <section className="py-2 relative">

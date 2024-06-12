@@ -13,7 +13,7 @@ import { LuEye, LuTrash } from "react-icons/lu";
 import { toast } from "sonner";
 import RejectModal from "./(components)/RejectModal";
 
-export default function page() {
+export default function MainPage() {
   const { data: session }: any = useSession();
 
   //states =========================

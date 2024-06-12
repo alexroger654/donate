@@ -90,8 +90,9 @@ export function Products({ selectedProducts, setSelectedProducts }: IProps) {
     <DialogContent className="sm:max-w-[925px] py-10">
       <DialogTitle className="text-xl pb-4">Select Products</DialogTitle>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {productData?.map((item) => (
+        {productData?.map((item, i) => (
           <div
+            key={i}
             className={`flex items-center   space-x-4 
             ${checkProduct(item?._id) ? "border " : "border"}
              rounded-md  `}

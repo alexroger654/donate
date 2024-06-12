@@ -25,8 +25,8 @@ export default function Hero() {
             <span className="font-normal">Make someone’s life better</span>
           </h1>
           <p className="text-lg text-muted-foreground mt-8">
-            Lorem Ipsum has been the industry's standard dummy text ever since
-            the 1500s, when an unknown printer took a type and scrambled.
+            Lorem Ipsum has been the industry standard dummy text ever since the
+            1500s, when an unknown printer took a type and scrambled.
           </p>
         </div>
         <div className=" grid place-content-center h-full relative overflow-hidden">

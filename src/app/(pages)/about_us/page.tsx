@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function AboutUsPage() {
+export default function AboutUsMainPage() {
   return (
     <div>
       <div className="overflow-x-hidden bg-gray-50">
@@ -59,7 +59,7 @@ export default function AboutUsPage() {
                   About Us{" "}
                 </h2>
                 <p className="font-normal text-xl leading-8 text-gray-500 max-lg:text-center max-w-2xl mx-auto">
-                  Driven by a passion for seamless user experiences, we've
+                  Driven by a passion for seamless user experiences, we
                   meticulously curated pagedone to empower creators, designers,
                   and developers alike. Our mission is to provide a
                   comprehensive toolkit, enabling you to build intuitive,
@@ -87,7 +87,7 @@ export default function AboutUsPage() {
                 </h2>
                 <p className="font-normal text-xl leading-8 text-gray-500 max-lg:text-center max-w-2xl mx-auto">
                   Pagedone isn’t just a collection of components and guidelines;
-                  it's a philosophy. We go beyond aesthetics, prioritizing
+                  it a philosophy. We go beyond aesthetics, prioritizing
                   accessibility, scalability, and usability. Every element, from
                   the tiniest detail to the grandest layout, is meticulously
                   crafted to enhance functionality and elevate user
@@ -122,8 +122,8 @@ export default function AboutUsPage() {
                     Company growth
                   </h4>
                   <p className="text-xs text-gray-500 leading-5">
-                    Company's remarkable growth journey as we continually
-                    innovate and drive towards new heights of success.
+                    Company remarkable growth journey as we continually innovate
+                    and drive towards new heights of success.
                   </p>
                 </div>
               </div>
@@ -181,11 +181,11 @@ export default function AboutUsPage() {
                     <p className="text-lg text-gray-500 leading-8 mb-8 text-center">
                       I have been using pagedone for several months now, and I
                       must say that it has made my life a lot easier. The
-                      platform's intuitive interface and ease of use have
-                      allowed me to manage my finances more effectively and make
+                      platform intuitive interface and ease of use have allowed
+                      me to manage my finances more effectively and make
                       informed investment decisions. I particularly like the
-                      product's auto-tracking feature, which has saved me a lot
-                      of time and effort.
+                      product auto-tracking feature, which has saved me a lot of
+                      time and effort.
                     </p>
                   </div>
                 </div>
@@ -197,11 +197,11 @@ export default function AboutUsPage() {
                     <p className="text-lg text-gray-500 leading-8 mb-8 text-center">
                       I have been using pagedone for several months now, and I
                       must say that it has made my life a lot easier. The
-                      platform's intuitive interface and ease of use have
-                      allowed me to manage my finances more effectively and make
+                      platform intuitive interface and ease of use have allowed
+                      me to manage my finances more effectively and make
                       informed investment decisions. I particularly like the
-                      product's auto-tracking feature, which has saved me a lot
-                      of time and effort.
+                      product auto-tracking feature, which has saved me a lot of
+                      time and effort.
                     </p>
                   </div>
                 </div>
@@ -213,11 +213,11 @@ export default function AboutUsPage() {
                     <p className="text-lg text-gray-500 leading-8 mb-8 text-center">
                       I have been using pagedone for several months now, and I
                       must say that it has made my life a lot easier. The
-                      platform's intuitive interface and ease of use have
-                      allowed me to manage my finances more effectively and make
+                      platform intuitive interface and ease of use have allowed
+                      me to manage my finances more effectively and make
                       informed investment decisions. I particularly like the
-                      product's auto-tracking feature, which has saved me a lot
-                      of time and effort.
+                      product auto-tracking feature, which has saved me a lot of
+                      time and effort.
                     </p>
                   </div>
                 </div>
