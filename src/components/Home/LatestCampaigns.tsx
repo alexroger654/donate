@@ -1,9 +1,21 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { LuCalendarCheck, LuUserCircle2 } from "react-icons/lu";
 import { Slider } from "../ui/slider";
 import { cn } from "@/lib/utils";
+import { IPost } from "@/shared/interfaces/post.interface";
+import { getData } from "@/shared/commonFunctions";
 
 export default function LatestCampaigns() {
+  // states ====================================
+  const [postData, setPostData] = useState<IPost[]>([]);
+  const [loading, setLoading] = useState(false);
+  // getting and setting data===========
+  useEffect(() => {
+    getData(setPostData, "blog_post/list", setLoading);
+  }, []);
+
   return (
     <section
       style={{
@@ -29,31 +41,33 @@ export default function LatestCampaigns() {
           </h1>
         </div>
         <div className="grid lg:grid-cols-3 my-12 gap-8">
-          {[...Array(6)]?.map((item) => (
+          {postData?.map((item) => (
             <div
-              key={item}
+              key={item?._id}
               className="group flex flex-col bg-white w-full rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]  "
             >
               <div className=" relative">
                 <div className="w-full h-56 overflow-hidden rounded-t-xl ">
                   <img
                     className="w-full h-56   rounded-t-xl transition-all duration-700 group-hover:scale-125"
-                    src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80"
-                    alt="Image Description"
+                    src={item?.imageUrl}
+                    alt={item?.title}
                   />
                 </div>
               </div>
 
               <div className="p-4 md:p-5 space-y-4 mt-2">
                 <p className=" text-md font-semibold text-primary">
-                  Child Education
+                  # {item?.tag}
                 </p>
                 <h3 className="text-2xl font-semibold text-primary-foreground leading-snug tracking-wide   transition-all duration-500 cursor-pointer group-hover:text-primary">
-                  New era for children learning and remove discrimination
+                  {item?.title}
                 </h3>
                 <p className="mt- text-md font-semibold text-muted-foreground">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card content.
+                  {item?.pageContent
+                    ?.replace(/<\/?[^>]+(>|$)/g, "")
+                    ?.slice(0, 40)}
+                  ...
                 </p>
                 <div className="grid grid-cols-2 border-t border-muted py-2">
                   <div className="flex items-center justify-center gap-2 border-r border-muted">
@@ -65,7 +79,7 @@ export default function LatestCampaigns() {
                         Date:
                       </p>
                       <p className="text-muted-foreground text-xs ">
-                        20 Dec, 2021
+                        {item?.createdAt?.slice(0, 10)}
                       </p>
                     </div>
                   </div>
@@ -78,7 +92,7 @@ export default function LatestCampaigns() {
                         By:
                       </p>
                       <p className="text-muted-foreground text-xs ">
-                        Tausif Abid
+                        {item?.userName}
                       </p>
                     </div>
                   </div>

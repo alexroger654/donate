@@ -19,14 +19,18 @@ export default function Hero() {
           <h1 className="font-bold text-primary-foreground text-4xl lg:text-7xl leading-tight  ">
             <span className="relative px-1">
               <div className="absolute inset-x-0 bottom-3 h-5 transform -skew-x-12 bg-secondary " />
-              <span className="relative inline-block ">Share</span>
+              <span className="relative inline-block ">At Galleria</span>
             </span>{" "}
-            your love to{" "}
-            <span className="font-normal">Make someone’s life better</span>
+            Foundation, we
+            <span className="font-normal">
+              {" "}
+              empower lives and strengthen communities
+            </span>
           </h1>
           <p className="text-lg text-muted-foreground mt-8">
-            Lorem Ipsum has been the industry standard dummy text ever since the
-            1500s, when an unknown printer took a type and scrambled.
+            We provide essential resources, education, and support. Join us in
+            creating sustainable change and a better tomorrow. Together, we can
+            make a difference.
           </p>
         </div>
         <div className=" grid place-content-center h-full relative overflow-hidden">

@@ -1,38 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
+import { getData } from "@/shared/commonFunctions";
+import { IFaq } from "@/shared/interfaces/faq.interface";
+import React, { useEffect, useState } from "react";
 
-const Faq = () => {
-  const [faq, setFaq] = useState([
-    {
-      question: "How to create an account?",
-      answer:
-        'Amet minim mollit non deserunt ullamco est sit <a href="#" title="" class="text-blue-600 transition-all duration-200 hover:underline">aliqua dolor</a> do amet sint. Velit officia consequat duis enim velit mollit.',
-      open: false,
-    },
-    {
-      question: "How can I make payment using Paypal?",
-      answer:
-        'Amet minim mollit non deserunt ullamco est sit <a href="#" title="" class="text-blue-600 transition-all duration-200 hover:underline">aliqua dolor</a> do amet sint. Velit officia consequat duis enim velit mollit.',
-      open: false,
-    },
-    {
-      question: "Can I cancel my plan?",
-      answer:
-        'Amet minim mollit non deserunt ullamco est sit <a href="#" title="" class="text-blue-600 transition-all duration-200 hover:underline">aliqua dolor</a> do amet sint. Velit officia consequat duis enim velit mollit.',
-      open: false,
-    },
-    {
-      question: "How can I reach to support?",
-      answer:
-        'Amet minim mollit non deserunt ullamco est sit <a href="#" title="" class="text-blue-600 transition-all duration-200 hover:underline">aliqua dolor</a> do amet sint. Velit officia consequat duis enim velit mollit.',
-      open: false,
-    },
-  ]);
+const Faq = ({ faqType }: any) => {
+  const [faqData, setFaqData] = useState<IFaq[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  // getting and setting data===========
+  useEffect(() => {
+    getData(setFaqData, "faq/list", setLoading);
+  }, []);
+
+  const [faq, setFaq] = useState<any>([]);
 
   const toggleFaq = (index: any) => {
     setFaq(
-      faq.map((item, i) => {
+      faq.map((item: any, i: any) => {
         if (i === index) {
           item.open = !item.open;
         } else {
@@ -43,6 +28,21 @@ const Faq = () => {
       })
     );
   };
+
+  useEffect(() => {
+    if (faqType) {
+      let filteredData = faqData.filter((item) => item.type == faqType);
+
+      let convertedFqaData = filteredData?.map((item) => {
+        return {
+          question: item?.qus,
+          answer: item?.ans,
+          open: false,
+        };
+      });
+      setFaq(convertedFqaData);
+    }
+  }, [faqType, faqData.length]);
 
   return (
     <section className="py-10 bg-gray-50 sm:py-16 lg:py-24">
@@ -57,7 +57,7 @@ const Faq = () => {
         </div>
 
         <div className="max-w-3xl mx-auto mt-8 space-y-4 md:mt-16">
-          {faq.map((item, index) => (
+          {faq.map((item: any, index: number) => (
             <div
               key={index}
               className="transition-all duration-200 bg-white border border-gray-200 cursor-pointer hover:bg-gray-50"
@@ -100,17 +100,6 @@ const Faq = () => {
             </div>
           ))}
         </div>
-
-        <p className="text-center text-gray-600 textbase mt-9">
-          Didn’t find the answer you are looking for?{" "}
-          <a
-            href="#"
-            title=""
-            className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline"
-          >
-            Contact our support
-          </a>
-        </p>
       </div>
     </section>
   );

@@ -4,12 +4,17 @@ export default function TopDonorCompany() {
   return (
     <section className="py-24 ">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-20 text-center">
-          <span className="text-primary text-center font-medium mb-4 block">
-            OUR PARTNERS
-          </span>
-          <h1 className="text-4xl text-gray-900 text-center font-bold">
-            We work with the best partners
+        <div className="w-full lg:w-[60%] mx-auto mb-20">
+          <p className="text-xl tracking-wider  font-bold text-center text-muted-foreground mt-8">
+            Our Top Donors
+          </p>
+          <h1 className="font-semibold tracking-wider  text-center text-primary-foreground text-3xl lg:text-5xl leading-tight  ">
+            Partnering with leading donors,
+            <span className="relative px-1">
+              <div className="absolute inset-x-0 bottom-2 h-3 transform -skew-x-12 bg-secondary " />{" "}
+              <span className="relative inline-block "> we aim for</span>
+            </span>{" "}
+            profound impact
           </h1>
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2  xl:grid-cols-4">

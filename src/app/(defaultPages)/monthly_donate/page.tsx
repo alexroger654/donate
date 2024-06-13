@@ -1,3 +1,4 @@
+import Faq from "@/components/Faq";
 import Campaigns from "@/components/Home/Campaigns";
 import PrimaryButton from "@/components/PrimaryButton";
 import React from "react";
@@ -12,9 +13,9 @@ export default function MainPage() {
             <div className="group w-full h-full">
               <div className="relative h-full">
                 <img
-                  src="https://pagedone.io/asset/uploads/1696488602.png"
+                  src="/assets/donate-monthly.jpg"
                   alt="ContactUs tailwind section"
-                  className="w-full h-full   bg-blend-multiply bg-primary"
+                  className="w-full h-full rounded-xl  bg-blend-multiply bg-primary"
                 />
                 <h1 className="font-manrope text-white text-4xl font-bold leading-10 absolute top-11 left-11">
                   Donet Monthly
@@ -96,7 +97,7 @@ export default function MainPage() {
               className="w-full h-12 text-gray-600 placeholder-gray-400 bg-transparent text-lg shadow-sm font-normal leading-7 rounded-full border border-gray-200 focus:outline-none pl-4 mb-10"
               placeholder="Amount"
             />
-            <button className="w-full h-12 text-black text-base font-semibold leading-6 rounded-full transition-all duration-700 hover:bg-indigo-800 bg-primary shadow-sm">
+            <button className="w-full h-12 text-white text-base font-semibold leading-6 rounded-full transition-all duration-700  bg-primary shadow-sm">
               Send
             </button>
           </div>
@@ -111,35 +112,15 @@ export default function MainPage() {
             <div className="mb-10 lg:mb-16 flex justify-center items-center flex-col gap-x-0 gap-y-6 lg:gap-y-0 lg:flex-row lg:justify-between max-md:max-w-lg max-md:mx-auto">
               <div className="relative w-full text-center lg:text-left lg:w-2/4">
                 <h2 className="text-4xl font-bold text-gray-900 leading-[3.25rem] lg:mb-6 mx-auto max-w-max lg:max-w-md lg:mx-0">
-                  Enjoy the finest features with our products
+                  Card Curation
                 </h2>
               </div>
               <div className="relative w-full text-center  lg:text-left lg:w-2/4">
                 <p className="text-lg font-normal text-gray-500 mb-5">
-                  We provide all the advantages that can simplify all your
-                  financial transactions without any further requirements
+                  {`Select the occasion you're celebrating (e.g., birthday,
+                  anniversary, festival), the number of cards you wish to gift,
+                  and the value of each card.`}
                 </p>
-                <a
-                  href="#"
-                  className="flex flex-row items-center justify-center gap-2 text-base font-semibold text-primary lg:justify-start hover:text-primary "
-                >
-                  Button CTA{" "}
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M7.5 15L11.0858 11.4142C11.7525 10.7475 12.0858 10.4142 12.0858 10C12.0858 9.58579 11.7525 9.25245 11.0858 8.58579L7.5 5"
-                      stroke="#facc15"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                  </svg>
-                </a>
               </div>
             </div>
             <div className="flex justify-center items-center  gap-x-5 gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8">
@@ -160,11 +141,12 @@ export default function MainPage() {
                   </svg>
                 </div>
                 <h4 className="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-black">
-                  Easy Payment
+                  {`Receiver's Details`}
                 </h4>
                 <p className="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-black">
-                  We Provide Various Methods For You To Carry Out All
-                  Transactions Related To Your Finances
+                  {`Enter the recipient's name, email, and a heartfelt message.
+                  They will receive your message along with the gift card, sure
+                  to brighten their day!`}
                 </p>
               </div>
               <div className="group relative w-full bg-gray-100 rounded-2xl p-4 transition-all duration-500 max-md:max-w-md max-md:mx-auto md:w-2/5 md:h-64 xl:p-7 xl:w-1/4 hover:bg-primary">
@@ -186,11 +168,11 @@ export default function MainPage() {
                   </svg>
                 </div>
                 <h4 className="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-black">
-                  Safe Transaction
+                  Checkout
                 </h4>
                 <p className="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-black">
-                  We have the most up-to-date security to support the security
-                  of all our customers in carrying out all transactions.
+                  Choose your preferred payment method and complete the
+                  transaction. You will receive a payment confirmation
                 </p>
               </div>
               <div className="group relative w-full bg-gray-100 rounded-2xl p-4 transition-all duration-500 max-md:max-w-md max-md:mx-auto md:w-2/5 md:h-64 xl:p-7 xl:w-1/4 hover:bg-primary">
@@ -212,11 +194,11 @@ export default function MainPage() {
                   </svg>
                 </div>
                 <h4 className="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-black">
-                  Fast Customer Service{" "}
+                  Experience the Joy of Giving
                 </h4>
                 <p className="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-black">
-                  Provide Customer Service For Those Of You Who Have Problems 24
-                  Hours A Week
+                  The recipient(s) will receive an email with the gift card and
+                  a coupon code, which they can use to donate
                 </p>
               </div>
               <div className="group relative w-full bg-gray-100 rounded-2xl p-4 transition-all duration-500 max-md:max-w-md max-md:mx-auto md:w-2/5 md:h-64 xl:p-7 xl:w-1/4 hover:bg-primary">
@@ -248,6 +230,8 @@ export default function MainPage() {
             </div>
           </div>
         </section>
+        {/* ================ faq============= */}
+        <Faq faqType="monthly_payment" />
       </section>
     </>
   );

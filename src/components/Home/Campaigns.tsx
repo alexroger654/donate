@@ -28,7 +28,7 @@ export default function Campaigns() {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
-      className="w-full  py-24 lg:px-16"
+      className="w-full  py-24 lg:px-16 px-4"
     >
       <div className="w-full h-full max-w-screen-xl mx-auto">
         <div className="w-full lg:w-[60%] mx-auto">
@@ -49,7 +49,7 @@ export default function Campaigns() {
             <Link
               key={item?._id}
               href={`/campaigns/details/${item?._id}`}
-              className="group flex flex-col bg-white w-full rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]  "
+              className="group flex flex-col bg-white w-full rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]  relative "
             >
               <div className=" relative">
                 <div className="w-full h-56 overflow-hidden rounded-t-xl ">
@@ -76,7 +76,7 @@ export default function Campaigns() {
                       ]}
                       max={100}
                       step={1}
-                      className={cn("w-full mt-3")}
+                      className={cn("w-full mt-3 bg-red-100 rounded-full")}
                     />
                   </div>
                 </div>
@@ -119,6 +119,10 @@ export default function Campaigns() {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <div className="bg-primary px-2 py-2 rounded-md text-white absolute top-2 left-2 text-xs ">
+                {item?.category_name}
               </div>
             </Link>
           ))}

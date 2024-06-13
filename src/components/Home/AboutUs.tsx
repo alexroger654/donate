@@ -18,18 +18,19 @@ export default function AboutUs() {
               Are you ready to explore
             </p>
             <h1 className="font-semibold tracking-wider   text-primary-foreground text-3xl lg:text-5xl leading-tight  ">
-              We were founded to empower
+              {`We are India's most crowd funding trusted and`}
               <span className="relative px-1">
                 <div className="absolute inset-x-0 bottom-2 h-3 transform -skew-x-12 bg-secondary " />
-                <span className="relative inline-block ">all of</span>
+                <span className="relative inline-block "> transparent</span>
               </span>{" "}
-              humanity
+              <span className="font-normal">
+                platform, dedicated to creating social impact
+              </span>
             </h1>
             <p className="text-lg font-semibold text-muted-foreground md:text-lg">
-              Our warehousing services are known nationwide to be one of the
-              most reliable, safe and affordable, because we take pride in
-              delivering the best of warehousing services, at the most
-              reasonable prices.
+              Our unique model enables global donors to fund essential products
+              for Indian NGOs and charities, which we then deliver directly to
+              them.
             </p>
           </div>
 

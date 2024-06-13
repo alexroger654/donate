@@ -3,6 +3,7 @@ import Banner from "@/components/Home/Banner";
 import Campaigns from "@/components/Home/Campaigns";
 import Categories from "@/components/Home/Categories";
 import Categories2 from "@/components/Home/Categories2";
+import Features from "@/components/Home/Features";
 import HelpCards from "@/components/Home/HelpCards";
 import HelpNow from "@/components/Home/HelpNow";
 import Hero from "@/components/Home/Hero";
@@ -19,7 +20,8 @@ export default function Home() {
       <Categories />
       <Campaigns />
       <AboutUs />
-      <Banner />
+      <Features />
+      <TopDonorCompany />
       <LatestCampaigns />
     </>
   );

@@ -19,11 +19,14 @@ const GiftCardsPage = () => {
               <div>
                 <div className="text-center lg:text-left">
                   <h1 className="text-4xl font-bold leading-tight text-gray-900 sm:text-5xl sm:leading-tight lg:leading-tight lg:text-6xl font-pj">
-                    A special credit card made for People.
+                    Get Gift card
                   </h1>
                   <p className="mt-2 text-lg text-gray-600 sm:mt-8 font-inter">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vehicula massa in enim luctus. Rutrum arcu.
+                    The galleria foundation Gift Card is a thoughtful way to
+                    support causes that matter to you. Give the gift of impact
+                    by allowing recipients to choose where their donation goes,
+                    ensuring it directly benefits those in need. Join us in
+                    making a difference, one gift at a time.
                   </p>
                 </div>
 
@@ -84,7 +87,7 @@ const GiftCardsPage = () => {
 
                   <div className="flex items-center">
                     <p className="text-3xl font-medium text-gray-900 sm:text-4xl font-pj">
-                      $1M+
+                      1M+
                     </p>
                     <p className="ml-3 text-sm text-gray-900 font-pj">
                       Transaction
@@ -271,11 +274,10 @@ const GiftCardsPage = () => {
                   </span>
                 </div>
                 <h3 className="mt-6 text-xl font-semibold leading-tight text-black md:mt-10">
-                  Create a free account
+                  CHOOSE A CAUSE
                 </h3>
                 <p className="mt-4 text-base text-gray-600">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia consequat duis enim velit mollit.
+                  Browse different campaigns and <br /> select a cause.
                 </p>
               </div>
 
@@ -287,11 +289,10 @@ const GiftCardsPage = () => {
                   </span>
                 </div>
                 <h3 className="mt-6 text-xl font-semibold leading-tight text-black md:mt-10">
-                  Build your website
+                  SELECT PRODUCTS
                 </h3>
                 <p className="mt-4 text-base text-gray-600">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia consequat duis enim velit mollit.
+                  Select products and quantity you <br /> wish to donate.
                 </p>
               </div>
 
@@ -303,11 +304,11 @@ const GiftCardsPage = () => {
                   </span>
                 </div>
                 <h3 className="mt-6 text-xl font-semibold leading-tight text-black md:mt-10">
-                  Release & Launch
+                  DELIVERY REPORT
                 </h3>
                 <p className="mt-4 text-base text-gray-600">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia consequat duis enim velit mollit.
+                  Galleria Foundation delivers the products and the organization
+                  updates about <br /> product utilization
                 </p>
               </div>
             </div>
@@ -316,7 +317,7 @@ const GiftCardsPage = () => {
       </section>
 
       {/* ================ faq============= */}
-      <Faq />
+      <Faq faqType="gift_cards" />
     </>
   );
 };
