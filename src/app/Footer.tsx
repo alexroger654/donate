@@ -162,9 +162,14 @@ export default function Footer() {
                 <h4 className="mb-9 text-lg font-semibold text-primary-foreground ">
                   Contact
                 </h4>
-                <p className="text-muted-foreground whitespace-normal hover:text-primary-foreground text-sm mb-4">
-                  Office Address, India1272, btm 4 stage +91 805050095
-                  info@galleria.foundation Send Us An Inquiry
+                <p className="text-muted-foreground whitespace-normal hover:text-primary-foreground text-sm ">
+                  Office Address: 1272, btm 4 stage , India
+                </p>
+                <p className="text-muted-foreground whitespace-normal hover:text-primary-foreground text-sm ">
+                  Phone: +91 805050095
+                </p>
+                <p className="text-muted-foreground whitespace-nowrap hover:text-primary-foreground text-sm ">
+                  Email: info@galleria.foundation
                 </p>
               </div>
             </div>

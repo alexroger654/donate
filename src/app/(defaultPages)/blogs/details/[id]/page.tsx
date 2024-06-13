@@ -20,8 +20,6 @@ export default function Page() {
     getData(setPostData, `blog_post/list?id=${params?.id}`, setLoading);
   }, []);
 
-  console.log(postData, "===========");
-
   if (loading) {
     return <Loading />;
   }
@@ -35,7 +33,7 @@ export default function Page() {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
-        className="relative py-28 bg-primary"
+        className="relative py-12 lg:py-28 bg-primary"
       >
         <div className="w-full max-w-lg md:max-w-2xl lg:max-w-4xl px-5 lg:px-11 mx-auto max-md:px-4">
           <h1 className="text-white font-manrope font-semibold text-4xl min-[500px]:text-5xl leading-tight mb-8">

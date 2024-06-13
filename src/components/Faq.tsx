@@ -51,9 +51,6 @@ const Faq = ({ faqType }: any) => {
           <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
             Frequently Asked Questions
           </h2>
-          <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-          </p>
         </div>
 
         <div className="max-w-3xl mx-auto mt-8 space-y-4 md:mt-16">

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function AboutUsMainPage() {
@@ -6,37 +7,33 @@ export default function AboutUsMainPage() {
       <div className="overflow-x-hidden bg-gray-50">
         <section className="relative py-12 sm:py-16 lg:pt-20 xl:pb-0">
           <div className="relative px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-            <div className="max-w-3xl mx-auto text-center">
-              <p className="inline-flex px-4 py-2 text-base text-gray-900 border border-gray-200 rounded-full font-pj">
+            <div className="max-w-4xl mx-auto text-center">
+              <p className="inline-flex px-4 py-2 text-base text-primary-foreground border border-gray-200 rounded-full font-pj">
                 Made by People, for People
               </p>
-              <h1 className="mt-5 text-4xl font-bold leading-tight text-gray-900 sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight font-pj">
-                Quality resources shared by the community
+              <h1 className="mt-5 text-4xl font-bold leading-tight text-primary-foreground sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight font-pj">
+                Connecting People, Connecting  World
               </h1>
-              <p className="max-w-md mx-auto mt-6 text-base leading-7 text-gray-600 font-inter">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vehicula massa in enim luctus. Rutrum arcu.
-              </p>
 
               <div className="relative inline-flex mt-10 group">
-                <div className="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
+                <div className="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-primary via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
 
-                <a
-                  href="#"
+                <Link
+                  href="/campaigns"
                   title=""
                   className="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
                   role="button"
                 >
-                  Get access to 4,958 resources
-                </a>
+                  Donate Now
+                </Link>
               </div>
             </div>
           </div>
 
-          <div className="mt-16 md:mt-20">
+          <div className="mt-16 md:mt-10">
             <img
-              className="object-cover object-top w-full h-auto mx-auto scale-150 2xl:max-w-screen-2xl xl:scale-100"
-              src="https://d33wubrfki0l68.cloudfront.net/54780decfb9574945bc873b582cdc6156144a2ba/d9fa1/images/hero/4/illustration.png"
+              className="object-cover h- object-top w-full  mx-auto scale-150 2xl:max-w-screen-2xl xl:scale-100"
+              src="/assets/about_header.png"
               alt=""
             />
           </div>
@@ -120,25 +117,63 @@ export default function AboutUsMainPage() {
           </div>
         </div>
       </section>
+      <section id="our-team" className="bg-gray-100 py-32">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-8 text-primary-foreground">
+            Meet Our Team
+          </h2>
 
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-3xl mx-auto">
+            <div className="bg-white rounded-lg shadow-md p-6 my-6 text-center">
+              <img
+                src="/assets/abhishek.JPG"
+                alt="Team Member 1"
+                className="w-36 h-36 mx-auto rounded-full mb-4"
+              />
+              <h3 className="text-xl font-semibold mb-2"> Abhishek</h3>
+              <p className="text-gray-700">Role: Founder</p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-md p-6 my-6 text-center">
+              <img
+                src="/assets/megha.JPG"
+                alt="Team Member 2"
+                className="w-36 h-36 mx-auto rounded-full mb-4"
+              />
+              <h3 className="text-xl font-semibold mb-2"> Meghah</h3>
+              <p className="text-gray-700">Role: Founder</p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-md p-6 my-6 text-center">
+              <img
+                src="/assets/atul.JPG"
+                alt="Team Member 3"
+                className="w-36 h-36 mx-auto rounded-full mb-4"
+              />
+              <h3 className="text-xl font-semibold mb-2"> Atul</h3>
+              <p className="text-gray-700">Role: Member</p>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-manrope text-4xl text-center text-gray-900 font-bold mb-14">
-            Our results in numbers
+          <h2 className="font-manrope text-4xl text-center text-primary-foreground font-bold mb-14">
+            Ongoing
           </h2>
           <div className="flex flex-col gap-5 xl:gap-8 lg:flex-row lg:justify-between">
             <div className="w-full max-lg:max-w-2xl mx-auto lg:mx-0 lg:w-1/3 bg-white p-6 rounded-2xl shadow-md shadow-gray-100">
               <div className="flex gap-5">
                 <div className="font-manrope text-2xl font-bold text-primary">
-                  240%
+                  2+
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-xl text-gray-900 font-semibold mb-2">
-                    Company growth
+                  <h4 className="text-xl text-primary-foreground font-semibold mb-2">
+                    Event
                   </h4>
                   <p className="text-xs text-gray-500 leading-5">
-                    Company remarkable growth journey as we continually innovate
-                    and drive towards new heights of success.
+                    Join Us in Making a Lasting Impact and Creating Positive
+                    Change Togethe
                   </p>
                 </div>
               </div>
@@ -146,15 +181,15 @@ export default function AboutUsMainPage() {
             <div className="w-full max-lg:max-w-2xl mx-auto lg:mx-0 lg:w-1/3 bg-white p-6 rounded-2xl shadow-md shadow-gray-100">
               <div className="flex gap-5">
                 <div className="font-manrope text-2xl font-bold text-primary">
-                  175+
+                  50+
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-xl text-gray-900 font-semibold mb-2">
-                    Company growth
+                  <h4 className="text-xl text-primary-foreground font-semibold mb-2">
+                    Donated
                   </h4>
                   <p className="text-xs text-gray-500 leading-5">
-                    Our very talented team members are the powerhouse of
-                    pagedone and pillars of our success.{" "}
+                    Celebrating Over 50 Generous Contributions Transforming
+                    Lives and Communities
                   </p>
                 </div>
               </div>
@@ -162,15 +197,14 @@ export default function AboutUsMainPage() {
             <div className="w-full max-lg:max-w-2xl mx-auto lg:mx-0 lg:w-1/3 bg-white p-6 rounded-2xl shadow-md shadow-gray-100">
               <div className="flex gap-5">
                 <div className="font-manrope text-2xl font-bold text-primary">
-                  625+
+                  1+
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-xl text-gray-900 font-semibold mb-2">
-                    Projects Completed
+                  <h4 className="text-xl text-primary-foreground font-semibold mb-2">
+                    Active
                   </h4>
                   <p className="text-xs text-gray-500 leading-5">
-                    We have accomplished more than 625 projects worldwide and we
-                    are still counting many more.
+                    More Than One Ongoing Initiative Driving Positive Change"
                   </p>
                 </div>
               </div>
@@ -182,7 +216,7 @@ export default function AboutUsMainPage() {
       {/* <section className=" py-14 lg:py-24 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
           <div className="mb-16 rounded-full">
-            <h2 className="text-4xl font-manrope font-bold text-gray-900 text-center">
+            <h2 className="text-4xl font-manrope font-bold text-primary-foreground text-center">
               What our happy user says!
             </h2>
           </div>
@@ -266,100 +300,6 @@ export default function AboutUsMainPage() {
         </div>
       </section> */}
 
-      <section className="py-14 lg:py-24 ">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-24">
-            <h2 className="font-manrope text-4xl text-center font-bold text-gray-900 mb-6">
-              Meet our soldier of finance
-            </h2>
-            <p className="text-lg text-gray-500 text-center">
-              We provide all the advantage that can simplify all your financial
-              and banking support without any further issues
-            </p>
-          </div>
-          {/* <!--Slider Wrapper--> */}
-          <div className="swiper teamswiper pb-10">
-            <div className="grid grid-cols-1 lg:grid-cols-3 ">
-              <div className="swiper-slide">
-                <div className="group w-full flex-wrap flex items-center gap-8  transition-all duration-500 p-8  lg:flex-nowrap">
-                  <div className=" w-full lg:w-48 h-64">
-                    <img
-                      src="/assets/abhishek.JPG"
-                      alt="image"
-                      className="rounded-2xl h-full object-cover mx-auto lg:mx-0 lg:w-full"
-                    />
-                  </div>
-                  <div className="text-center lg:text-left lg:max-w-xs flex-1">
-                    <div className="mb-5 pb-5 border-b border-solid border-gray-300">
-                      <h6 className="text-lg text-gray-900 font-semibold mb-1">
-                        Abhishek
-                      </h6>
-                      <span className="text-sm text-gray-500 group-hover:text-primary">
-                        Founder
-                      </span>
-                    </div>
-                    <p className="text-gray-500 leading-6 mb-7">
-                      I am the founder of Galleria Foundation and we’ve pushed
-                      our limit so far to make it successful.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="swiper-slide">
-                <div className="group w-full flex-wrap flex items-center gap-8 flex-col md:flex-row transition-all duration-500 p-8 lg:flex-nowrap">
-                  <div className=" w-full lg:w-48 h-64 max-lg:max-w-[204px] max-lg:mx-auto">
-                    <img
-                      src="/assets/megha.JPG"
-                      alt="image"
-                      className="rounded-2xl h-full object-cover mx-auto lg:mx-0 lg:w-full"
-                    />
-                  </div>
-                  <div className="text-center lg:text-left lg:max-w-xs flex-1 flex flex-col justify-between">
-                    <div className="mb-5 pb-5 border-b border-solid border-gray-300">
-                      <h6 className="text-lg text-gray-900 font-semibold mb-1">
-                        Megha
-                      </h6>
-                      <span className="text-sm text-gray-500 group-hover:text-primary">
-                        Founder
-                      </span>
-                    </div>
-                    <p className="text-gray-500 leading-6 mb-7">
-                      I am the founder of Galleria Foundation we’ve pushed our
-                      limit so far to make it successful.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="swiper-slide">
-                <div className="group w-full flex-wrap flex items-center gap-8  transition-all duration-500 p-8  lg:flex-nowrap">
-                  <div className=" w-full lg:w-48 h-64">
-                    <img
-                      src="/assets/atul.JPG"
-                      alt="image"
-                      className="rounded-2xl h-full object-cover mx-auto lg:mx-0 lg:w-full"
-                    />
-                  </div>
-                  <div className="text-center lg:text-left lg:max-w-xs flex-1">
-                    <div className="mb-5 pb-5 border-b border-solid border-gray-300">
-                      <h6 className="text-lg text-gray-900 font-semibold mb-1">
-                        Atul
-                      </h6>
-                      <span className="text-sm text-gray-500 group-hover:text-primary">
-                        Member
-                      </span>
-                    </div>
-                    <p className="text-gray-500 leading-6 mb-7">
-                      I am a Member Galleria Foundation and we’ve pushed our
-                      limit so far to make it successful.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* <section className="relative py-12 bg-white sm:py-16 lg:py-20">
         <div className="absolute inset-0">
           <img
@@ -371,7 +311,7 @@ export default function AboutUsMainPage() {
 
         <div className="relative px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
           <div className="max-w-xl mx-auto text-center">
-            <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">
+            <h1 className="text-3xl font-bold text-primary-foreground sm:text-4xl lg:text-5xl">
               Transparent Medical Fund
             </h1>
             <p className="max-w-md mx-auto mt-6 text-base font-normal leading-7 text-gray-500">
@@ -393,7 +333,7 @@ export default function AboutUsMainPage() {
                     type="email"
                     name=""
                     id=""
-                    className="block w-full px-4 py-3 sm:py-3.5 text-base font-medium text-gray-900 placeholder-gray-500 border border-gray-300 rounded-lg  sm:text-sm focus:ring-gray-900 focus:border-gray-900"
+                    className="block w-full px-4 py-3 sm:py-3.5 text-base font-medium text-primary-foreground placeholder-gray-500 border border-gray-300 rounded-lg  sm:text-sm focus:ring-gray-900 focus:border-gray-900"
                     placeholder="Email address"
                   />
                 </div>
@@ -427,7 +367,7 @@ export default function AboutUsMainPage() {
                     d="M5 13l4 4L19 7"
                   />
                 </svg>
-                <span className="text-xs font-medium text-gray-900 sm:text-sm">
+                <span className="text-xs font-medium text-primary-foreground sm:text-sm">
                   Weekly new articles
                 </span>
               </li>
@@ -447,7 +387,7 @@ export default function AboutUsMainPage() {
                     d="M5 13l4 4L19 7"
                   />
                 </svg>
-                <span className="text-xs font-medium text-gray-900 sm:text-sm">
+                <span className="text-xs font-medium text-primary-foreground sm:text-sm">
                   Join other 1600+ Devs
                 </span>
               </li>
@@ -469,12 +409,12 @@ export default function AboutUsMainPage() {
                   </a>
 
                   <div className="flex-1 ml-4 lg:ml-6">
-                    <p className="text-xs font-medium text-gray-900 lg:text-sm">
+                    <p className="text-xs font-medium text-primary-foreground lg:text-sm">
                       <a href="#" title="" className="">
                         Growth
                       </a>
                     </p>
-                    <p className="mt-2 text-sm font-bold text-gray-900 lg:text-lg group-hover:text-gray-600">
+                    <p className="mt-2 text-sm font-bold text-primary-foreground lg:text-lg group-hover:text-gray-600">
                       <a href="#" title="" className="">
                         How a visual artist redefines success in graphic design
                       </a>
@@ -501,12 +441,12 @@ export default function AboutUsMainPage() {
                   </a>
 
                   <div className="flex-1 ml-4 lg:ml-6">
-                    <p className="text-xs font-medium text-gray-900 lg:text-sm">
+                    <p className="text-xs font-medium text-primary-foreground lg:text-sm">
                       <a href="#" title="" className="">
                         Growth
                       </a>
                     </p>
-                    <p className="mt-2 text-sm font-bold text-gray-900 lg:text-lg group-hover:text-gray-600">
+                    <p className="mt-2 text-sm font-bold text-primary-foreground lg:text-lg group-hover:text-gray-600">
                       <a href="#" title="" className="">
                         How a visual artist redefines success in graphic design
                       </a>
@@ -533,12 +473,12 @@ export default function AboutUsMainPage() {
                   </a>
 
                   <div className="flex-1 ml-4 lg:ml-6">
-                    <p className="text-xs font-medium text-gray-900 lg:text-sm">
+                    <p className="text-xs font-medium text-primary-foreground lg:text-sm">
                       <a href="#" title="" className="">
                         Growth
                       </a>
                     </p>
-                    <p className="mt-2 text-sm font-bold text-gray-900 lg:text-lg group-hover:text-gray-600">
+                    <p className="mt-2 text-sm font-bold text-primary-foreground lg:text-lg group-hover:text-gray-600">
                       <a href="#" title="" className="">
                         How a visual artist redefines success in graphic design
                       </a>
@@ -565,12 +505,12 @@ export default function AboutUsMainPage() {
                   </a>
 
                   <div className="flex-1 ml-4 lg:ml-6">
-                    <p className="text-xs font-medium text-gray-900 lg:text-sm">
+                    <p className="text-xs font-medium text-primary-foreground lg:text-sm">
                       <a href="#" title="" className="">
                         Growth
                       </a>
                     </p>
-                    <p className="mt-2 text-sm font-bold text-gray-900 lg:text-lg group-hover:text-gray-600">
+                    <p className="mt-2 text-sm font-bold text-primary-foreground lg:text-lg group-hover:text-gray-600">
                       <a href="#" title="" className="">
                         How a visual artist redefines success in graphic design
                       </a>
@@ -597,12 +537,12 @@ export default function AboutUsMainPage() {
                   </a>
 
                   <div className="flex-1 ml-4 lg:ml-6">
-                    <p className="text-xs font-medium text-gray-900 lg:text-sm">
+                    <p className="text-xs font-medium text-primary-foreground lg:text-sm">
                       <a href="#" title="" className="">
                         Growth
                       </a>
                     </p>
-                    <p className="mt-2 text-sm font-bold text-gray-900 lg:text-lg group-hover:text-gray-600">
+                    <p className="mt-2 text-sm font-bold text-primary-foreground lg:text-lg group-hover:text-gray-600">
                       <a href="#" title="" className="">
                         How a visual artist redefines success in graphic design
                       </a>

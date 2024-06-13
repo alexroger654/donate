@@ -4,6 +4,8 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import React, { useLayoutEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Sheet, SheetTrigger } from "@/components/ui/sheet";
+import { MobileNav } from "./MobileNav";
 export default function Navbar() {
   const [isUserLoggedIn, setUserLoggedIn] = useState(false);
   const { data: session }: any = useSession();
@@ -31,22 +33,27 @@ export default function Navbar() {
           </div>
 
           <div className="flex lg:hidden">
-            <button type="button" className="text-gray-900">
-              <svg
-                className="w-7 h-7"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
-            </button>
+            <Sheet>
+              <SheetTrigger asChild>
+                <button type="button" className="text-gray-900">
+                  <svg
+                    className="w-7 h-7"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    ></path>
+                  </svg>
+                </button>
+              </SheetTrigger>
+              <MobileNav />
+            </Sheet>
           </div>
 
           <div className="hidden lg:absolute lg:inset-y-0 lg:flex lg:items-center lg:justify-center lg:space-x-12 lg:-translate-x-1/2 lg:left-1/2">

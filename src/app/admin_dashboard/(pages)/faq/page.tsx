@@ -4,12 +4,15 @@ import CreateCategory from "./(modules)/components/CreateModal";
 import { getData } from "@/shared/commonFunctions";
 import Loading from "@/components/Loading";
 import { IFaq } from "@/shared/interfaces/faq.interface";
+import UpdateModal from "./(modules)/components/UpdateModal";
 
 export default function MainPage() {
   // states ============================
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isUpdateModalOpen, setUpdateIsModalOpen] = useState(false);
   const [faqData, setFaqData] = useState<IFaq[]>([]);
   const [loading, setLoading] = useState(false);
+  const [currentData, setCurrentData] = useState<any>("");
 
   // getting and setting data===========
   useEffect(() => {
@@ -36,10 +39,7 @@ export default function MainPage() {
           <h3 className="text-gray-800 text-xl font-bold sm:text-2xl">
             All F.A.Q
           </h3>
-          <p className="text-gray-600 mt-2">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
-          </p>
+          <p className="text-gray-600 mt-2"></p>
         </div>
         <div className="mt-3 md:mt-0">
           <button
@@ -56,7 +56,7 @@ export default function MainPage() {
             <tr>
               <th className="py-3 px-6">Type</th>
               <th className="py-3 px-6">Qus</th>
-              <th className="py-3 px-6">Ans</th>
+              {/* <th className="py-3 px-6">Ans</th> */}
               <th className="py-3 px-6"></th>
             </tr>
           </thead>
@@ -65,15 +65,20 @@ export default function MainPage() {
               faqData?.map((item, idx) => (
                 <tr key={item._id}>
                   <td className="px-6 py-4 whitespace-nowrap">{item.type}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{item.qus}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{item.ans}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    {item.qus?.slice(0, 20)}
+                  </td>
+                  {/* <td className="px-6 py-4 whitespace-nowrap">{item.ans}</td> */}
                   <td className="text-right px-6 whitespace-nowrap">
-                    <a
-                      href="javascript:void()"
+                    <button
+                      onClick={() => {
+                        setCurrentData(item);
+                        setUpdateIsModalOpen(true);
+                      }}
                       className="py-2 px-3 font-medium text-primary hover:text-primary/70 duration-150 hover:bg-gray-50 rounded-lg"
                     >
                       Edit
-                    </a>
+                    </button>
                     <button
                       // href="javascript:void()"
                       className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg"
@@ -94,6 +99,12 @@ export default function MainPage() {
         isOpen={isModalOpen}
         setIsOpen={setIsModalOpen}
         refetch={refetch}
+      />
+      <UpdateModal
+        isOpen={isUpdateModalOpen}
+        setIsOpen={setUpdateIsModalOpen}
+        refetch={refetch}
+        data={currentData}
       />
     </div>
   );

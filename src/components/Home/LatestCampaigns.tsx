@@ -6,6 +6,7 @@ import { Slider } from "../ui/slider";
 import { cn } from "@/lib/utils";
 import { IPost } from "@/shared/interfaces/post.interface";
 import { getData } from "@/shared/commonFunctions";
+import Link from "next/link";
 
 export default function LatestCampaigns() {
   // states ====================================
@@ -42,7 +43,8 @@ export default function LatestCampaigns() {
         </div>
         <div className="grid lg:grid-cols-3 my-12 gap-8">
           {postData?.map((item) => (
-            <div
+            <Link
+              href={`/blogs/details/${item?._id}`}
               key={item?._id}
               className="group flex flex-col bg-white w-full rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]  "
             >
@@ -58,7 +60,7 @@ export default function LatestCampaigns() {
 
               <div className="p-4 md:p-5 space-y-4 mt-2">
                 <p className=" text-md font-semibold text-primary">
-                  # {item?.tag}
+                  {item?.tag}
                 </p>
                 <h3 className="text-2xl font-semibold text-primary-foreground leading-snug tracking-wide   transition-all duration-500 cursor-pointer group-hover:text-primary">
                   {item?.title}
@@ -98,7 +100,7 @@ export default function LatestCampaigns() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

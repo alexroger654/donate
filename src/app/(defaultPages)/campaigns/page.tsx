@@ -13,6 +13,7 @@ import { ICategory } from "@/shared/interfaces/category.interface";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 import { LuCalendarCheck, LuUserCircle2 } from "react-icons/lu";
+import Loading from "@/components/Loading";
 export default function MainPage() {
   const [campaignData, setCampaignData] = useState<ICampaign[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -43,6 +44,10 @@ export default function MainPage() {
       fetchSearchData();
     }
   }, [selectedCategory]);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   // render=============================
   return (

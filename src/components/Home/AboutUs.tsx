@@ -34,7 +34,7 @@ export default function AboutUs() {
             </p>
           </div>
 
-          <div className="grid space-y-3 sm:gap-2 sm:grid-cols-2 sm:space-y-0">
+          {/* <div className="grid space-y-3 sm:gap-2 sm:grid-cols-2 sm:space-y-0">
             <ul className="space-y-3 text-muted-foreground text-lg font-semibold ">
               <li className="flex">
                 <span className="mr-1 mt-1 text-primary">
@@ -75,7 +75,7 @@ export default function AboutUs() {
                 Satoshi Nakamoto
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
