@@ -204,7 +204,7 @@ export default function AboutUsMainPage() {
                     Active
                   </h4>
                   <p className="text-xs text-gray-500 leading-5">
-                    More Than One Ongoing Initiative Driving Positive Change"
+                    More Than One Ongoing Initiative Driving Positive Change
                   </p>
                 </div>
               </div>
