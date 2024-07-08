@@ -29,11 +29,7 @@ export default function UserLayout({
         <aside className="z-20 flex-shrink-0 hidden w-60 pl-2  bg-gray-800 md:block">
           <div className="flex flex-col w-64 h-screen px-5 py-8 o bg-white border-r  ">
             <Link href="/admin_dashboard/">
-              <img
-                className="w-auto h-7"
-                src="https://merakiui.com/images/logo.svg"
-                alt=""
-              />
+              <img className="w-32" src="/assets/logo.png" alt="" />
             </Link>
 
             <div className="flex flex-col justify-between flex-1 mt-6">
