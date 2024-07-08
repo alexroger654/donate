@@ -26,9 +26,10 @@ export default function Navbar() {
               title="Home"
               className="flex rounded outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
             >
-              <p className="text-lg font-extrabold text-primary-foreground ">
+              <img src="/assets/logo.png" alt="" className="w-28" />
+              {/* <p className="text-lg font-extrabold text-primary-foreground ">
                 Galleria <span className="text-primary">Foundation</span>
-              </p>
+              </p> */}
             </Link>
           </div>
 
