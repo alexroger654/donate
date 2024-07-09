@@ -13,6 +13,7 @@ export default function From() {
     name: "",
     email: "",
     password: "",
+    // role: "admin",
   });
 
   //hooks

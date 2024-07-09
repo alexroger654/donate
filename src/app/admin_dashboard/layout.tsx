@@ -1,7 +1,10 @@
 "use client";
+import Loading from "@/components/Loading";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useLayoutEffect, useState } from "react";
 export default function UserLayout({
   children,
 }: Readonly<{
@@ -11,6 +14,11 @@ export default function UserLayout({
   const [isNotificationsMenuOpen, setIsNotificationsMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
+  //======== hooks ==============
+
+  const { data: session, status }: any = useSession();
+  const router = useRouter();
+
   const toggleSideMenu = () => setIsSideMenuOpen(!isSideMenuOpen);
   const closeSideMenu = () => setIsSideMenuOpen(false);
   const toggleNotificationsMenu = () =>
@@ -19,6 +27,19 @@ export default function UserLayout({
   const toggleProfileMenu = () => setIsProfileMenuOpen(!isProfileMenuOpen);
   const closeProfileMenu = () => setIsProfileMenuOpen(false);
 
+  console.log(session, "session");
+
+  useLayoutEffect(() => {
+    if (status !== "loading" && session?.user?.role !== "admin") {
+      router?.push("/");
+    }
+  }, [session?.user?.id, status]);
+
+  if (status === "loading") {
+    return <Loading />;
+  }
+
+  //================= render ====================
   return (
     <section className="w-full h-full absolute top-0 bottom-0 z-[10000]">
       <div

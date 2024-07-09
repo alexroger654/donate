@@ -1,4 +1,7 @@
+"use client";
+
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 
 export default function UserLayout({
@@ -6,6 +9,12 @@ export default function UserLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const handleLogout = () => {
+    signOut({ callbackUrl: "/sign_in" });
+  };
+
+  //================ render ===============
+
   return (
     <>
       <div className="mx-4 max-w-screen-xl sm:mx-8 xl:mx-auto">
@@ -92,6 +101,15 @@ export default function UserLayout({
                   {" "}
                   Create Campaign
                 </Link>
+              </li>
+              <li className="mt-4">
+                <button
+                  onClick={handleLogout}
+                  className="cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
+                >
+                  {" "}
+                  Log Out
+                </button>
               </li>
             </ul>
           </div>
