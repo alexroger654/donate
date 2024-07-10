@@ -28,6 +28,7 @@ export const authOptions = {
       },
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     //@ts-ignore
     async jwt({ token, user }) {
