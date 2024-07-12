@@ -11,6 +11,7 @@ export interface ICampaign {
   beneficiary_party_name: string;
   image_url: string;
   category_name: string;
+  category_Id?: string;
   targeted_amount: number;
   raised_amount: number;
 

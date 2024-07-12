@@ -2,14 +2,24 @@
 
 import { Button } from "@/components/ui/button";
 import { IGiftCardTemplate } from "@/shared/interfaces/GiftCardTemplate.interface";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CreateModal from "./CreateModal";
+import { getData } from "@/shared/commonFunctions";
 
 export default function Page() {
   const [Vouchers, setVouchers] = React.useState<IGiftCardTemplate[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [giftCardName, setGiftCardName] = useState("");
   const [loading, setLoading] = useState(false);
+
+  async function handleFetchData() {
+    getData(setVouchers, `gift_card_template/list`, setLoading);
+  }
+
+  // getting and setting data===========
+  useEffect(() => {
+    handleFetchData();
+  }, []);
 
   // ========== render -------------------------
   return (

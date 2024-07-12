@@ -51,6 +51,7 @@ export default function From() {
   const [selectedProductKit, setSelectedProductKit] = useState<any>([]);
   const [editorState, setEditorState] = useState("");
   const [image, setImage] = useState<any>("");
+  const [error, setError] = useState("");
   const [selectedProducts, setSelectedProducts] = useState<ISelectedProduct[]>(
     []
   );
@@ -104,6 +105,9 @@ export default function From() {
       campaign_description: editorState,
       user_id: session?.user?.id,
       image_url: imageUrl,
+      category_Id: categoryData?.find(
+        (item) => item?.name == campaignData?.category_name
+      )?._id,
     };
 
     await createData(dataWithProduct, "campaign", setLoading);
@@ -356,16 +360,22 @@ export default function From() {
                 type="text"
                 id="default-search"
                 defaultValue={campaignData.user_phone_number}
-                onChange={(e) =>
+                onChange={(e) => {
                   setCampaignData({
                     ...campaignData,
                     user_phone_number: e.target.value,
-                  })
-                }
+                  });
+                  if (e.target.value?.length < 10) {
+                    setError("Phone number must be 10 characters.");
+                  } else {
+                    setError("");
+                  }
+                }}
                 className="w-full block h-12 pr-5 pl-12 py-2.5 text-lg leading-7 font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none"
                 placeholder="Enter Your Phone Number"
               />
             </div>
+            <p className="my-4 text-red-700 text-sm ">{error}</p>
             <div className="relative mb-8 mt-8">
               <label className="flex  items-center mb-2 text-gray-600 text-base leading-6 font-medium">
                 Campaign Category

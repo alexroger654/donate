@@ -24,7 +24,7 @@ export default function MainPage() {
   async function fetchSearchData() {
     getData(
       setCampaignData,
-      `campaign/list?category=${selectedCategory}`,
+      `campaign/list?category_Id=${selectedCategory}`,
       setLoading
     );
   }
@@ -61,7 +61,7 @@ export default function MainPage() {
         }}
         className="py-4 relative pb-96"
       >
-        <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
+        <div className="w-full max-w-[1380px] mx-auto px-4 md:px-8">
           {/* devider ======================== */}
           <svg
             className="my-7 w-full"
@@ -85,7 +85,7 @@ export default function MainPage() {
                 <div className="grid grid-cols-3 gap-5  ">
                   {categoryData?.map((item) => (
                     <div
-                      onClick={() => setSelectedCategory(item?.name)}
+                      onClick={() => setSelectedCategory(item?._id)}
                       key={item?._id}
                       className="border rounded-full     mb-6 h-20 w-20 cursor-pointer   mx-auto bg-white transform duration-700 transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]   "
                     >
@@ -116,7 +116,7 @@ export default function MainPage() {
                       <div className="w-full h-40 overflow-hidden rounded-t-xl ">
                         <img
                           className="w-full h-40   rounded-t-xl transition-all duration-700 group-hover:scale-125"
-                          src="https://dkprodimages.gumlet.io/campaign/cover/Support-Srotoshwini-Trust1150894626.jpeg?format=webp&w=700&dpr=1.0"
+                          src={item?.image_url}
                           alt="Image Description"
                         />
                         <div className="bg-white border w-[90%] rounded-xl  shadow-[0_8px_30px_rgb(0,0,0,0.12)] py-2 px-4 absolute -bottom-8 left-1/2 transform -translate-x-1/2">
