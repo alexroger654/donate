@@ -9,7 +9,6 @@ export const authOptions = {
       name: "Credentials",
       credentials: {},
       async authorize(credentials: any) {
-        console.log(credentials, "this i have credentials");
         //  get user
         const user: any = await handleCheckUser(
           credentials?.email,
@@ -67,8 +66,6 @@ async function handleCheckUser(email: string, password: string) {
       }),
     }
   );
-
-  console.log(res.status, "------------ |||||||| ------------");
 
   if (res.status === 200) {
     const data = await res.json();

@@ -115,7 +115,7 @@ export default function Navbar() {
             {isUserLoggedIn ? (
               <>
                 <Link
-                  href="/user_dashboard"
+                  href={session?.user?.role == 'admin' ? "/admin_dashboard" : "/user_dashboard"}
                   className="uppercase font-extrabold"
                 >
                   <Avatar>
