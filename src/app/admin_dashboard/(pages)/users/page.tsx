@@ -45,8 +45,7 @@ export default function MainPage() {
             All Users
           </h3>
           <p className="text-gray-600 mt-2">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
+
           </p>
         </div>
         {/* <div className="mt-3 md:mt-0">
@@ -77,11 +76,10 @@ export default function MainPage() {
                 <td className="pr-6 py-4 whitespace-nowrap">{item.date}</td>
                 <td className="pr-6 py-4 whitespace-nowrap">
                   <span
-                    className={`px-3 py-2 rounded-full font-semibold text-xs ${
-                      item.status == "Active"
+                    className={`px-3 py-2 rounded-full font-semibold text-xs ${item.status == "Active"
                         ? "text-green-600 bg-green-50"
                         : "text-blue-600 bg-blue-50"
-                    }`}
+                      }`}
                   >
                     {item.status}
                   </span>

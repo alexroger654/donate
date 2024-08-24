@@ -41,8 +41,7 @@ export default function MainPage() {
             All Blog Posts
           </h3>
           <p className="text-gray-600 mt-2">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
+
           </p>
         </div>
         <div className="mt-3 md:mt-0">
