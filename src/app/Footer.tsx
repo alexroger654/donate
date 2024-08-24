@@ -8,7 +8,7 @@ export default function Footer() {
         {/* <!--Grid--> */}
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-8 py-10 max-sm:max-w-sm max-sm:mx-auto gap-y-8">
           <div className="col-span-full mb-10 lg:col-span-2 lg:mb-0">
-            <img src="/assets/logo.png" alt="" className="w-28" />
+            <img src="/assets/logo.png" alt="" className="w-28 mx-auto lg:mx-0" />
             <p className="py-4 text-xs text-gray-500 lg:max-w-xs text-center lg:text-left">
               {`Galleria Foundation is India's most`} trusted and transparent
               crowdfunding platform, committed to creating social impact. Our
@@ -16,12 +16,7 @@ export default function Footer() {
               products needed by Indian NGOs and charities, which we then
               deliver directly to them.
             </p>
-            <a
-              href="javascript:;"
-              className="py-2.5 px-5 h-9 block w-fit bg-primary rounded-full shadow-sm text-xs text-white mx-auto transition-all  duration-500 hover:bg-primary lg:mx-0"
-            >
-              Contact us
-            </a>
+
           </div>
           {/* <!--End Col--> */}
           <div className="lg:mx-auto text-left ">
@@ -166,7 +161,7 @@ export default function Footer() {
                 <p className="text-muted-foreground whitespace-normal hover:text-primary-foreground text-sm ">
                   Phone: +91 805050095
                 </p>
-                <p className="text-muted-foreground whitespace-nowrap hover:text-primary-foreground text-sm ">
+                <p className="text-muted-foreground  hover:text-primary-foreground text-sm ">
                   Email: info@galleria.foundation
                 </p>
               </div>
@@ -177,7 +172,7 @@ export default function Footer() {
         <div className="py-7 border-t border-gray-200">
           <div className="flex items-center justify-center flex-col lg:justify-between lg:flex-row">
             <span className="text-sm text-gray-500 ">
-              ©<a href="https://pagedone.io/">pagedone</a> 2024, All rights
+              ©<a href="https://sitegalleria.com/">Designed By Site Galleria</a> 2024, All rights
               reserved.
             </span>
             <div className="flex mt-4 space-x-4 sm:justify-center lg:mt-0 ">

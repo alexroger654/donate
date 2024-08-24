@@ -53,7 +53,7 @@ export default function Navbar() {
                   </svg>
                 </button>
               </SheetTrigger>
-              <MobileNav />
+              <MobileNav isUserLoggedIn={isUserLoggedIn} />
             </Sheet>
           </div>
 

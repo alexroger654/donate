@@ -20,7 +20,7 @@ export default function UserLayout({
       <div className="mx-4 max-w-screen-xl sm:mx-8 xl:mx-auto">
         <div className="grid grid-cols-8 pt-3 pb-10 sm:grid-cols-10">
           {/* side bar mobile====================== */}
-          <div className="relative my-4 w-56 sm:hidden">
+          <div className="relative my-4 w-full col-span-full sm:hidden">
             <input
               className="peer hidden"
               type="checkbox"
@@ -48,18 +48,43 @@ export default function UserLayout({
               />
             </svg>
             <ul className="max-h-0 select-none flex-col overflow-hidden rounded-b-lg shadow-md transition-all duration-300 peer-checked:max-h-56 peer-checked:py-3">
-              <Link
-                href="/user_dashboard/my_impacts"
-                className="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white"
-              >
-                My Impact
-              </Link>
+
               <li className="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white">
-                Accounts
+                <Link
+                  href="/user_dashboard/"
+                  className="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-white"
+                >
+                  Profile
+                </Link>
               </li>
               <li className="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white">
-                Others
+                <Link
+                  href="/user_dashboard/my_transactions"
+                  className="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-white"
+                >
+                  {" "}
+                  My Transactions
+                </Link>
               </li>
+              <li className="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white">
+                <Link
+                  href="/user_dashboard/my_campaigns"
+                  className="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-white"
+                >
+                  {" "}
+                  My Campaigns
+                </Link>
+              </li>
+              <li className="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white">
+                <Link
+                  href="/create_campaign"
+                  className="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-white"
+                >
+                  {" "}
+                  Create Campaign
+                </Link>
+              </li>
+
             </ul>
           </div>
           {/* sidebar desktop======================= */}
