@@ -6,7 +6,7 @@ import React from "react";
 export default function MainPage() {
   return (
     <>
-      <section className="py-5 mx-auto  px-4 sm:px-6 lg:px-8">
+      <section className="py-5   px-4 sm:px-6 lg:px-8 max-w-screen-xl mx-auto">
         {/* hero================== */}
         <div className="grid lg:grid-cols-2 grid-cols-1">
           <div className="lg:mb-0 mb-10">

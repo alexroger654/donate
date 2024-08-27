@@ -45,14 +45,12 @@ export default function MainPage() {
 
   return (
     <div>
-      <section className=" relative z-10 bg-white rounded-lg p-5 ">
+      <section className=" relative z-10 bg-white rounded-lg p-5 min-h-[80vh] ">
         <div className="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto relative z-10">
           <h2 className="text-lg font-semibold leading-7 mt-5 text-gray-900">
-            My Campaigns
+            Campaigns
           </h2>
-          <p className="mt-1 text-sm leading-6 text-gray-600">
-            Use a permanent address where you can receive mail.
-          </p>
+
           <div className="grid grid-cols-12">
             <div className="col-span-12  lg:pr-8 pt-14 pb-8  w-full max-xl:max-w-3xl max-xl:mx-auto">
               {/* ==================== campaign cards */}

@@ -91,7 +91,8 @@ export async function createData(
 export async function deleteData(
   reqItem: string,
   reqId: string,
-  setLoading: any
+  setLoading: any,
+  refetch: any
 ) {
   try {
     setLoading(true);
@@ -104,6 +105,9 @@ export async function deleteData(
 
     if (res.ok) {
       setLoading(false);
+      if (refetch) {
+        refetch();
+      }
       return true;
     } else {
       setLoading(false);

@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-8 py-10 max-sm:max-w-sm max-sm:mx-auto gap-y-8">
           <div className="col-span-full mb-10 lg:col-span-2 lg:mb-0">
             <img src="/assets/logo.png" alt="" className="w-28 mx-auto lg:mx-0" />
-            <p className="py-4 text-xs text-gray-500 lg:max-w-xs text-center lg:text-left">
+            <p className="py-4 text-base text-gray-500 lg:max-w-xs text-center lg:text-left">
               {`Galleria Foundation is India's most`} trusted and transparent
               crowdfunding platform, committed to creating social impact. Our
               unique model allows people globally to donate towards essential
@@ -21,7 +21,7 @@ export default function Footer() {
           {/* <!--End Col--> */}
           <div className="lg:mx-auto text-left ">
             <h4 className="text-lg text-gray-900 font-medium mb-7">Discover</h4>
-            <ul className="text-sm  transition-all duration-500">
+            <ul className="text-base  transition-all duration-500">
               <li className="mb-4">
                 <Link
                   href="/about_us"
@@ -77,7 +77,7 @@ export default function Footer() {
           {/* <!--End Col--> */}
           <div className="lg:mx-auto text-left ">
             <h4 className="text-lg text-gray-900 font-medium mb-7">Learn</h4>
-            <ul className="text-sm  transition-all duration-500">
+            <ul className="text-base  transition-all duration-500">
               <li className="mb-4">
                 <Link
                   href="/gift_cards"
@@ -124,7 +124,7 @@ export default function Footer() {
           {/* <!--End Col--> */}
           <div className="lg:mx-auto text-left ">
             <h4 className="text-lg text-gray-900 font-medium mb-7">Legal</h4>
-            <ul className="text-sm  transition-all duration-500">
+            <ul className="text-base  transition-all duration-500">
               <li className="mb-4">
                 <Link
                   href="/gift_cards"
@@ -155,13 +155,13 @@ export default function Footer() {
                 <h4 className="mb-9 text-lg font-semibold text-primary-foreground ">
                   Contact
                 </h4>
-                <p className="text-muted-foreground whitespace-normal hover:text-primary-foreground text-sm ">
+                <p className="text-muted-foreground whitespace-normal hover:text-primary-foreground text-base ">
                   Office Address: 1272, btm 4 stage , India
                 </p>
-                <p className="text-muted-foreground whitespace-normal hover:text-primary-foreground text-sm ">
+                <p className="text-muted-foreground whitespace-normal hover:text-primary-foreground text-base ">
                   Phone: +91 805050095
                 </p>
-                <p className="text-muted-foreground  hover:text-primary-foreground text-sm ">
+                <p className="text-muted-foreground  hover:text-primary-foreground text-base ">
                   Email: info@galleria.foundation
                 </p>
               </div>
@@ -171,7 +171,7 @@ export default function Footer() {
         {/* <!--Grid--> */}
         <div className="py-7 border-t border-gray-200">
           <div className="flex items-center justify-center flex-col lg:justify-between lg:flex-row">
-            <span className="text-sm text-gray-500 ">
+            <span className="text-base text-gray-500 ">
               ©<a href="https://sitegalleria.com/">Designed By Site Galleria</a> 2024, All rights
               reserved.
             </span>

@@ -1,44 +1,43 @@
-export default function MainPage() {
-  const tableItems = [
-    {
-      name: "Solo learn app",
-      date: "Oct 9, 2023",
-      status: "Active",
-      price: "$35.000",
-      plan: "Monthly subscription",
-    },
-    {
-      name: "Window wrapper",
-      date: "Oct 12, 2023",
-      status: "Active",
-      price: "$12.000",
-      plan: "Monthly subscription",
-    },
-    {
-      name: "Unity loroin",
-      date: "Oct 22, 2023",
-      status: "Archived",
-      price: "$20.000",
-      plan: "Annually subscription",
-    },
-    {
-      name: "Background remover",
-      date: "Jan 5, 2023",
-      status: "Active",
-      price: "$5.000",
-      plan: "Monthly subscription",
-    },
-    {
-      name: "Colon tiger",
-      date: "Jan 6, 2023",
-      status: "Active",
-      price: "$9.000",
-      plan: "Annually subscription",
-    },
-  ];
+'use client'
 
+import Loading from "@/components/Loading";
+import { deleteData, getData } from "@/shared/commonFunctions";
+import { IUser } from "@/shared/interfaces/user.interface";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+export default function MainPage() {
+
+  // states ============================
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [data, setData] = useState<IUser[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  // getting and setting data===========
+  useEffect(() => {
+    getData(setData, "user/list", setLoading);
+  }, []);
+
+  //=== refetch ====================
+
+  async function refetch() {
+    getData(setData, "user/list", setLoading);
+  }
+
+
+  async function handleDelete(id: string) {
+    deleteData('user', id, setLoading, refetch())
+  }
+
+  // loading =======================
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  //================================= render =============================
   return (
-    <div className="max-w-screen-xl mx-auto px-4 md:px-8 lg:p-14 bg-white rounded-xl border">
+    <div className="max-w-screen-xl mx-auto px-4 md:px-8 lg:p-14 bg-white min-h-[85vh] rounded-xl border">
       <div className="items-start justify-between md:flex">
         <div className="max-w-lg">
           <h3 className="text-gray-800 text-xl font-bold sm:text-2xl">
@@ -63,36 +62,31 @@ export default function MainPage() {
             <tr>
               <th className="py-3 pr-6">Name</th>
               <th className="py-3 pr-6">Email</th>
-              <th className="py-3 pr-6">status</th>
-              <th className="py-3 pr-6">Campaigns</th>
-              <th className="py-3 pr-6">Money Collected</th>
-              <th className="py-3 pr-6"></th>
+              <th className="py-3 pr-6">Phone</th>
+              <th className="py-3 pr-6">Action</th>
             </tr>
           </thead>
           <tbody className="text-gray-600 divide-y">
-            {tableItems.map((item, idx) => (
+            {data && data?.filter(item => item.role !== "admin")?.map((item, idx) => (
               <tr key={idx}>
                 <td className="pr-6 py-4 whitespace-nowrap">{item.name}</td>
-                <td className="pr-6 py-4 whitespace-nowrap">{item.date}</td>
-                <td className="pr-6 py-4 whitespace-nowrap">
-                  <span
-                    className={`px-3 py-2 rounded-full font-semibold text-xs ${item.status == "Active"
-                        ? "text-green-600 bg-green-50"
-                        : "text-blue-600 bg-blue-50"
+                <td className="pr-6 py-4 whitespace-nowrap">{item.email}</td>
+                <td className="pr-6 py-4 whitespace-nowrap">{item.phone_number}</td>
+
+                <td className="text-right whitespace-nowrap ">
+                  <button
+                    onClick={() => handleDelete(item?._id)}
+                    className="py-1.5 px-3 bg-red-500 text-white duration-150 border rounded-lg mr-4"
+                  >
+                    Remove
+                  </button>
+                  <Link
+                    href={`users/campaigns/${item?._id
                       }`}
+                    className="py-2 px-3 bg-blue-500  text-white duration-150 border rounded-lg"
                   >
-                    {item.status}
-                  </span>
-                </td>
-                <td className="pr-6 py-4 whitespace-nowrap">{item.plan}</td>
-                <td className="pr-6 py-4 whitespace-nowrap">{item.price}</td>
-                <td className="text-right whitespace-nowrap">
-                  <a
-                    href="javascript:void()"
-                    className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg"
-                  >
-                    Manage
-                  </a>
+                    Campaigns
+                  </Link>
                 </td>
               </tr>
             ))}

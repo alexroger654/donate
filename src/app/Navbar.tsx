@@ -6,6 +6,7 @@ import React, { useLayoutEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { MobileNav } from "./MobileNav";
+import { usePathname, useRouter } from "next/navigation";
 export default function Navbar() {
   const [isUserLoggedIn, setUserLoggedIn] = useState(false);
   const { data: session }: any = useSession();
@@ -16,15 +17,48 @@ export default function Navbar() {
     }
   }, [session?.user?.id]);
 
+
+  const links = [
+    {
+      url: '/about_us',
+      label: "About Us"
+    },
+    {
+      url: '/monthly_donate',
+      label: "monthly donate"
+    },
+    {
+      url: '/gift_cards',
+      label: "Gift Cards"
+    },
+    {
+      url: '/create_campaign',
+      label: "Create Campaign"
+    },
+    {
+      url: '/blogs',
+      label: "blogs"
+    },
+  ]
+
+  const pathname = usePathname()
+
+
+
+
+
+
+  //======================== render ======================================
+
   return (
-    <header className="relative py-4 md:py-6 bg-white z-20">
+    <header className="relative py-4 md:py-6 bg-white z-20 max-w-screen-xl mx-auto">
       <div className="px-4 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between">
           <div className="flex-shrink-0">
             <Link
               href="/"
               title="Home"
-              className="flex rounded outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+              className="flex rounded outline-none "
             >
               <img src="/assets/logo.png" alt="" className="w-28" />
               {/* <p className="text-lg font-extrabold text-primary-foreground ">
@@ -58,57 +92,20 @@ export default function Navbar() {
           </div>
 
           <div className="hidden lg:absolute lg:inset-y-0 lg:flex lg:items-center lg:justify-center lg:space-x-12 lg:-translate-x-1/2 lg:left-1/2">
-            <Link
-              href="/about_us"
-              title=""
-              className="text-sm whitespace-nowrap font-medium text-primary-foreground transition-all duration-200 rounded focus:outline-none  hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              {" "}
-              About Us{" "}
-            </Link>
 
-            <Link
-              href="/campaigns"
-              title=""
-              className="text-sm whitespace-nowrap font-medium text-primary-foreground transition-all duration-200 rounded focus:outline-none  hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              {" "}
-              Campaigns{" "}
-            </Link>
+            {
+              links.map(item => <Link
+                href={item.url}
+                title=""
+                className={`text-sm whitespace-nowrap  ${pathname == item.url ? "text-primary" : 'text-primary-foreground'} transition-all duration-200 rounded leading-6 tracking-wide uppercase  font-semibold  hover:text-primary`}
+              >
+                {" "}
+                {item.label}
+              </Link>)
+            }
 
-            <Link
-              href="/gift_cards"
-              title=""
-              className="text-sm whitespace-nowrap font-medium text-primary-foreground transition-all duration-200 rounded focus:outline-none  hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              {" "}
-              Gift Cards{" "}
-            </Link>
 
-            <Link
-              href="/monthly_donate"
-              title=""
-              className="text-sm whitespace-nowrap font-medium text-primary-foreground transition-all duration-200 rounded focus:outline-none  hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              {" "}
-              Monthly Donate{" "}
-            </Link>
-            <Link
-              href="/create_campaign"
-              title=""
-              className="text-sm whitespace-nowrap font-medium text-primary-foreground transition-all duration-200 rounded focus:outline-none  hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              {" "}
-              Create Campaign
-            </Link>
-            <Link
-              href="/blogs"
-              title=""
-              className="text-sm whitespace-nowrap font-medium text-primary-foreground transition-all duration-200 rounded focus:outline-none  hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              {" "}
-              Blogs
-            </Link>
+
           </div>
 
           <div className="hidden lg:flex lg:items-center lg:justify-center lg:space-x-10">

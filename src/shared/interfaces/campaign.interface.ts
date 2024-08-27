@@ -1,5 +1,5 @@
 export interface ICampaign {
-  _id: string;
+  _id?: string;
   user_name: string;
   user_email: string;
   user_phone_number: string;
@@ -22,10 +22,10 @@ export interface ICampaign {
   product_kit_ids: string[];
   documents: string[];
   isVerified: boolean;
-  created_at: Date;
+  created_at: string;
   status: "pending" | "active" | "rejected" | "onHold";
   rejectMessage: string;
-  products: {
+  products?: {
     product_id: string;
     product_name: string;
     product_description: string;
@@ -33,7 +33,7 @@ export interface ICampaign {
     product_quantity: number;
     product_image_url: string;
   }[];
-  productKits: {
+  productKits?: {
     name: string;
     products: {
       product_id: string;
