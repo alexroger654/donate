@@ -96,6 +96,7 @@ export default function Navbar() {
             {
               links.map(item => <Link
                 href={item.url}
+                key={item.url}
                 title=""
                 className={`text-sm whitespace-nowrap  ${pathname == item.url ? "text-primary" : 'text-primary-foreground'} transition-all duration-200 rounded leading-6 tracking-wide uppercase  font-semibold  hover:text-primary`}
               >

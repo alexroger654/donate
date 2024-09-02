@@ -90,7 +90,8 @@ export default function MainPage() {
                         deleteData(
                           "blog_post",
                           item?._id as string,
-                          setLoading
+                          setLoading,
+                          refetch
                         );
                         refetch();
                       }}

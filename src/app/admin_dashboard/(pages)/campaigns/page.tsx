@@ -121,7 +121,7 @@ export default function MainPage() {
                             </Link>
                             {item.status !== "active" && (
                               <Button
-                                onClick={() => handleEventUpdate(item?._id)}
+                                onClick={() => handleEventUpdate(item?._id as string)}
                                 size="sm"
                                 className="bg-green-500 text-white hover:bg-green-400"
                               >

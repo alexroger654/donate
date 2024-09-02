@@ -17,178 +17,178 @@ import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import RejectModal from "../../../campaigns/(components)/RejectModal";
 
 export default function MainPage() {
-    const { data: session }: any = useSession();
+  const { data: session }: any = useSession();
 
-    //states =========================
-    const [campaignData, setCampaignData] = useState<ICampaign[]>([]);
-    const [loading, setLoading] = useState(false);
-
-
+  //states =========================
+  const [campaignData, setCampaignData] = useState<ICampaign[]>([]);
+  const [loading, setLoading] = useState(false);
 
 
 
-    //=========== param=================================
-
-    const param = useParams()
 
 
+  //=========== param=================================
 
-    // getting and setting data===========
-    useEffect(() => {
-        fetchData()
-    }, [param?.id]);
+  const param = useParams()
 
 
-    async function fetchData() {
-        getData(
-            setCampaignData,
-            `campaign/list?user=${param?.id}`,
-            setLoading
-        );
-    }
+
+  // getting and setting data===========
+  useEffect(() => {
+    fetchData()
+  }, [param?.id]);
 
 
-    async function handleEventUpdate(
-        id: string,
-        message: string = "",
-        status: string = "active"
-    ) {
-        await updateData(
-            {
-                status: status,
-                rejectMessage: message,
-            },
-            "campaign",
-            id,
-            setLoading
-        );
-        getData(setCampaignData, `campaign/list`, setLoading);
-        toast.success("Updated Successful");
-    }
-    if (loading) {
-        return <Loading />
-    }
+  async function fetchData() {
+    getData(
+      setCampaignData,
+      `campaign/list?user=${param?.id}`,
+      setLoading
+    );
+  }
 
-    //========================== render ==================================
 
-    return (
-        <div>
-            <section className=" relative z-10 bg-white rounded-lg p-5 min-h-[80vh] ">
-                <div className="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto relative z-10">
-                    <h2 className="text-lg font-semibold leading-7 mt-5 text-gray-900">
-                        Campaigns
-                    </h2>
+  async function handleEventUpdate(
+    id: string,
+    message: string = "",
+    status: string = "active"
+  ) {
+    await updateData(
+      {
+        status: status,
+        rejectMessage: message,
+      },
+      "campaign",
+      id,
+      setLoading
+    );
+    getData(setCampaignData, `campaign/list`, setLoading);
+    toast.success("Updated Successful");
+  }
+  if (loading) {
+    return <Loading />
+  }
 
-                    <div className="grid grid-cols-12">
-                        <div className="col-span-12  lg:pr-8 pt-14 pb-8  w-full max-xl:max-w-3xl max-xl:mx-auto">
-                            {/* ==================== campaign cards */}
-                            <div className="p-3">
-                                <div className="overflow-x-auto">
-                                    <table className="table-auto w-full">
-                                        <thead className="text-xs font-semibold uppercase py-3 text-gray-400 bg-gray-50">
-                                            <tr className=" mb-4">
-                                                <th className="py-3 whitespace-nowrap">
-                                                    <div className="font-semibold text-left">
-                                                        Campaign Name
-                                                    </div>
-                                                </th>
-                                                <th className=" whitespace-nowrap">
-                                                    <div className="font-semibold text-left">
-                                                        Target Amount
-                                                    </div>
-                                                </th>
-                                                <th className=" whitespace-nowrap">
-                                                    <div className="font-semibold text-left">
-                                                        Raised Amount
-                                                    </div>
-                                                </th>
-                                                <th className=" whitespace-nowrap">
-                                                    <div className="font-semibold text-left">Status</div>
-                                                </th>
-                                                <th className=" whitespace-nowrap">
-                                                    <div className="font-semibold text-center">
-                                                        Action
-                                                    </div>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody className="text-sm divide-y divide-gray-100">
-                                            {campaignData?.map((item) => (
-                                                <tr key={item?._id} className="py-3 mb-2">
-                                                    <td className=" whitespace-nowrap">
-                                                        <div className="flex items-center">
-                                                            <div className="font-medium text-gray-800">
-                                                                {item?.campaign_name?.slice(0, 50)}
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td className=" whitespace-nowrap">
-                                                        <div className="text-left">
-                                                            {item?.targeted_amount}
-                                                        </div>
-                                                    </td>
-                                                    <td className=" whitespace-nowrap">
-                                                        <div className="text-left font-medium text-green-500">
-                                                            {item?.raised_amount}
-                                                        </div>
-                                                    </td>
-                                                    <td className=" whitespace-nowrap">
-                                                        <div className="text-left font-medium capitalize text-green-500">
-                                                            {item?.status}
-                                                        </div>
-                                                    </td>
-                                                    <td className=" flex items-center justify-center space-x-2">
-                                                        <Link
-                                                            target="_blank"
-                                                            href={`/campaigns/details/${item?._id}`}
-                                                            className=""
-                                                        >
-                                                            <Button size="icon">
-                                                                <LuEye />
-                                                            </Button>
-                                                        </Link>
-                                                        {item.status !== "active" && (
-                                                            <Button
-                                                                onClick={() => handleEventUpdate(item?._id)}
-                                                                size="sm"
-                                                                className="bg-green-500 text-white hover:bg-green-400"
-                                                            >
-                                                                Approve
-                                                            </Button>
-                                                        )}
+  //========================== render ==================================
 
-                                                        <Dialog>
-                                                            <DialogTrigger asChild>
-                                                                <Button
-                                                                    size="sm"
-                                                                    className="bg-red-500 text-white hover:bg-red-700"
-                                                                >
-                                                                    Reject
-                                                                </Button>
-                                                            </DialogTrigger>
-                                                            <RejectModal
-                                                                id={item?._id}
-                                                                handleEventUpdate={handleEventUpdate}
-                                                            />
-                                                        </Dialog>
-                                                        <Button
-                                                            onClick={() => {
-                                                                deleteData("category", item?._id, setLoading, fetchData);
+  return (
+    <div>
+      <section className=" relative z-10 bg-white rounded-lg p-5 min-h-[80vh] ">
+        <div className="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto relative z-10">
+          <h2 className="text-lg font-semibold leading-7 mt-5 text-gray-900">
+            Campaigns
+          </h2>
 
-                                                            }}
-                                                            size="icon"
-                                                        >
-                                                            <LuTrash />
-                                                        </Button>
-                                                    </td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </div>
+          <div className="grid grid-cols-12">
+            <div className="col-span-12  lg:pr-8 pt-14 pb-8  w-full max-xl:max-w-3xl max-xl:mx-auto">
+              {/* ==================== campaign cards */}
+              <div className="p-3">
+                <div className="overflow-x-auto">
+                  <table className="table-auto w-full">
+                    <thead className="text-xs font-semibold uppercase py-3 text-gray-400 bg-gray-50">
+                      <tr className=" mb-4">
+                        <th className="py-3 whitespace-nowrap">
+                          <div className="font-semibold text-left">
+                            Campaign Name
+                          </div>
+                        </th>
+                        <th className=" whitespace-nowrap">
+                          <div className="font-semibold text-left">
+                            Target Amount
+                          </div>
+                        </th>
+                        <th className=" whitespace-nowrap">
+                          <div className="font-semibold text-left">
+                            Raised Amount
+                          </div>
+                        </th>
+                        <th className=" whitespace-nowrap">
+                          <div className="font-semibold text-left">Status</div>
+                        </th>
+                        <th className=" whitespace-nowrap">
+                          <div className="font-semibold text-center">
+                            Action
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-sm divide-y divide-gray-100">
+                      {campaignData?.map((item) => (
+                        <tr key={item?._id} className="py-3 mb-2">
+                          <td className=" whitespace-nowrap">
+                            <div className="flex items-center">
+                              <div className="font-medium text-gray-800">
+                                {item?.campaign_name?.slice(0, 50)}
+                              </div>
                             </div>
-                        </div>
-                        {/* <div className=" col-span-12 xl:col-span-4 bg-gray-50 w-full max-xl:px-6 max-w-3xl xl:max-w-lg mx-auto lg:pl-8 py-24">
+                          </td>
+                          <td className=" whitespace-nowrap">
+                            <div className="text-left">
+                              {item?.targeted_amount}
+                            </div>
+                          </td>
+                          <td className=" whitespace-nowrap">
+                            <div className="text-left font-medium text-green-500">
+                              {item?.raised_amount}
+                            </div>
+                          </td>
+                          <td className=" whitespace-nowrap">
+                            <div className="text-left font-medium capitalize text-green-500">
+                              {item?.status}
+                            </div>
+                          </td>
+                          <td className=" flex items-center justify-center space-x-2">
+                            <Link
+                              target="_blank"
+                              href={`/campaigns/details/${item?._id}`}
+                              className=""
+                            >
+                              <Button size="icon">
+                                <LuEye />
+                              </Button>
+                            </Link>
+                            {item.status !== "active" && (
+                              <Button
+                                onClick={() => handleEventUpdate(item?._id as string)}
+                                size="sm"
+                                className="bg-green-500 text-white hover:bg-green-400"
+                              >
+                                Approve
+                              </Button>
+                            )}
+
+                            <Dialog>
+                              <DialogTrigger asChild>
+                                <Button
+                                  size="sm"
+                                  className="bg-red-500 text-white hover:bg-red-700"
+                                >
+                                  Reject
+                                </Button>
+                              </DialogTrigger>
+                              <RejectModal
+                                id={item?._id}
+                                handleEventUpdate={handleEventUpdate}
+                              />
+                            </Dialog>
+                            <Button
+                              onClick={() => {
+                                deleteData("category", item?._id as string, setLoading, fetchData);
+
+                              }}
+                              size="icon"
+                            >
+                              <LuTrash />
+                            </Button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            {/* <div className=" col-span-12 xl:col-span-4 bg-gray-50 w-full max-xl:px-6 max-w-3xl xl:max-w-lg mx-auto lg:pl-8 py-24">
               <h2 className="font-manrope font-bold text-3xl leading-10 text-black pb-8 border-b border-gray-300">
                 Order Summary
               </h2>
@@ -382,9 +382,9 @@ export default function MainPage() {
                 </form>
               </div>
             </div> */}
-                    </div>
-                </div>
-            </section>
+          </div>
         </div>
-    );
+      </section>
+    </div>
+  );
 }

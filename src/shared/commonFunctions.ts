@@ -92,7 +92,7 @@ export async function deleteData(
   reqItem: string,
   reqId: string,
   setLoading: any,
-  refetch: any
+  refetch?: any
 ) {
   try {
     setLoading(true);
