@@ -84,10 +84,10 @@ export function MobileNav({ isUserLoggedIn }: any) {
                 <div className="py-2">
                   <SheetClose asChild>
                     <Link
-                      href={session?.user?.role == 'admin' ? "/admin_dashboard" : "/user_dashboard"}
+                      href={session?.user?.role == 'admin' || session?.user?.role == 'super_admin' ? "/admin_dashboard" : "/user_dashboard"}
                       className="text-sm whitespace-nowrap font-medium text-primary-foreground transition-all duration-200 rounded focus:outline-none  hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
                     >
-                      {session?.user?.role == 'admin' ? "Admin Dashboard" : "Profile"}
+                      {session?.user?.role == 'admin' || session?.user?.role == 'super_admin' ? "Admin Dashboard" : "Profile"}
 
                     </Link>
                   </SheetClose>

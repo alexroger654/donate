@@ -54,6 +54,7 @@ export const authOptions = {
 
 async function handleCheckUser(email: string, password: string) {
   const res = await fetch(
+    // `https://donate-server-2-git-main-alexroger654s-projects.vercel.app/api/v1/user/login`,
     `https://donate-server-2-git-main-alexroger654s-projects.vercel.app/api/v1/user/login`,
     {
       method: "POST",

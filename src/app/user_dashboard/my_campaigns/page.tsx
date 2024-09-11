@@ -56,15 +56,14 @@ export default function MainPage() {
                         className={`
                         capitalize
                         text-white
-                      ${
-                        item?.status == "pending"
-                          ? "bg-primary"
-                          : item?.status == "active"
-                          ? "bg-green-600"
-                          : item?.status == "rejected"
-                          ? "bg-red-600"
-                          : "bg-primary"
-                      }
+                      ${item?.status == "pending"
+                            ? "bg-primary"
+                            : item?.status == "active"
+                              ? "bg-green-600"
+                              : item?.status == "rejected"
+                                ? "bg-red-600"
+                                : "bg-primary"
+                          }
                       `}
                       >
                         {item?.status || "Pending"}
@@ -90,7 +89,7 @@ export default function MainPage() {
                           <Slider
                             defaultValue={[
                               campaignData[0]?.raised_amount /
-                                (campaignData[0]?.targeted_amount / 100),
+                              (campaignData[0]?.targeted_amount / 100),
                             ]}
                             max={100}
                             step={1}
@@ -170,9 +169,9 @@ export default function MainPage() {
                           <path
                             d="M1 1.5L4.58578 5.08578C5.25245 5.75245 5.58579 6.08579 6 6.08579C6.41421 6.08579 6.74755 5.75245 7.41421 5.08579L11 1.5"
                             stroke="#6B7280"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           ></path>
                         </svg>
                       </button>
@@ -249,9 +248,9 @@ export default function MainPage() {
                           <path
                             d="M1 1.5L4.58578 5.08578C5.25245 5.75245 5.58579 6.08579 6 6.08579C6.41421 6.08579 6.74755 5.75245 7.41421 5.08579L11 1.5"
                             stroke="#6B7280"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           ></path>
                         </svg>
                       </button>

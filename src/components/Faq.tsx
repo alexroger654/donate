@@ -70,9 +70,8 @@ const Faq = ({ faqType }: any) => {
                 </span>
 
                 <svg
-                  className={`w-6 h-6 text-gray-400 ${
-                    item.open ? "rotate-180" : ""
-                  }`}
+                  className={`w-6 h-6 text-gray-400 ${item.open ? "rotate-180" : ""
+                    }`}
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -88,9 +87,8 @@ const Faq = ({ faqType }: any) => {
               </button>
 
               <div
-                className={`${
-                  item.open ? "block" : "hidden"
-                } px-4 pb-5 sm:px-6 sm:pb-6`}
+                className={`${item.open ? "block" : "hidden"
+                  } px-4 pb-5 sm:px-6 sm:pb-6`}
               >
                 <p dangerouslySetInnerHTML={{ __html: item.answer }}></p>
               </div>

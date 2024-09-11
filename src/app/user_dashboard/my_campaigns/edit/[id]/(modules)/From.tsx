@@ -179,22 +179,20 @@ export default function From() {
             >
               <div className="flex items-center flex-col gap-x-2">
                 <div
-                  className={`w-8 h-8 rounded-full border-2 flex-none flex items-center justify-center ${
-                    steps.currentStep > idx + 1
-                      ? "bg-primary border-primary/90"
-                      : "" || steps.currentStep == idx + 1
+                  className={`w-8 h-8 rounded-full border-2 flex-none flex items-center justify-center ${steps.currentStep > idx + 1
+                    ? "bg-primary border-primary/90"
+                    : "" || steps.currentStep == idx + 1
                       ? "border-primary/90"
                       : ""
-                  }`}
+                    }`}
                 >
                   <span
-                    className={` ${
-                      steps.currentStep > idx + 1
-                        ? "hidden"
-                        : "" || steps.currentStep == idx + 1
+                    className={` ${steps.currentStep > idx + 1
+                      ? "hidden"
+                      : "" || steps.currentStep == idx + 1
                         ? "text-primary/90"
                         : ""
-                    }`}
+                      }`}
                   >
                     {idx + 1}
                   </span>
@@ -218,32 +216,29 @@ export default function From() {
                   )}
                 </div>
                 <hr
-                  className={`h-12 border md:hidden ${
-                    idx + 1 == steps.stepsItems.length
-                      ? "hidden"
-                      : "" || steps.currentStep > idx + 1
+                  className={`h-12 border md:hidden ${idx + 1 == steps.stepsItems.length
+                    ? "hidden"
+                    : "" || steps.currentStep > idx + 1
                       ? "border-primary/90"
                       : ""
-                  }`}
+                    }`}
                 />
               </div>
               <div className="h-8 flex items-center md:h-auto">
                 <h3
-                  className={`text-sm ${
-                    steps.currentStep == idx + 1 ? "text-primary/90" : ""
-                  }`}
+                  className={`text-sm ${steps.currentStep == idx + 1 ? "text-primary/90" : ""
+                    }`}
                 >
                   {item}
                 </h3>
               </div>
               <hr
-                className={`hidden mr-2 w-full border md:block ${
-                  idx + 1 == steps.stepsItems.length
-                    ? "hidden"
-                    : "" || steps.currentStep > idx + 1
+                className={`hidden mr-2 w-full border md:block ${idx + 1 == steps.stepsItems.length
+                  ? "hidden"
+                  : "" || steps.currentStep > idx + 1
                     ? "border-primary/90"
                     : ""
-                }`}
+                  }`}
               />
             </li>
           ))}
@@ -295,8 +290,8 @@ export default function From() {
                   <path
                     d="M2.25201 7L8.15881 10.8953C10.2686 12.1612 11.3235 12.7941 12.4825 12.7665C13.6416 12.739 14.6652 12.0566 16.7124 10.6917L21.748 7M10 20H14C17.7712 20 19.6569 20 20.8284 18.8284C22 17.6569 22 15.7712 22 12C22 8.22876 22 6.34315 20.8284 5.17157C19.6569 4 17.7712 4 14 4H10C6.22876 4 4.34315 4 3.17157 5.17157C2 6.34315 2 8.22876 2 12C2 15.7712 2 17.6569 3.17157 18.8284C4.34315 20 6.22876 20 10 20Z"
                     stroke="#6B7280"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
                   />
                 </svg>
               </div>
@@ -353,8 +348,8 @@ export default function From() {
                     <path
                       d="M2.25201 7L8.15881 10.8953C10.2686 12.1612 11.3235 12.7941 12.4825 12.7665C13.6416 12.739 14.6652 12.0566 16.7124 10.6917L21.748 7M10 20H14C17.7712 20 19.6569 20 20.8284 18.8284C22 17.6569 22 15.7712 22 12C22 8.22876 22 6.34315 20.8284 5.17157C19.6569 4 17.7712 4 14 4H10C6.22876 4 4.34315 4 3.17157 5.17157C2 6.34315 2 8.22876 2 12C2 15.7712 2 17.6569 3.17157 18.8284C4.34315 20 6.22876 20 10 20Z"
                       stroke="#6B7280"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
                     />
                   </svg>
                 </div>
@@ -397,9 +392,9 @@ export default function From() {
               <path
                 d="M7.5 15L11.0858 11.4142C11.7525 10.7475 12.0858 10.4142 12.0858 10C12.0858 9.58579 11.7525 9.25245 11.0858 8.58579L7.5 5"
                 stroke="white"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </button>
@@ -451,8 +446,8 @@ export default function From() {
                   <path
                     d="M2.25201 7L8.15881 10.8953C10.2686 12.1612 11.3235 12.7941 12.4825 12.7665C13.6416 12.739 14.6652 12.0566 16.7124 10.6917L21.748 7M10 20H14C17.7712 20 19.6569 20 20.8284 18.8284C22 17.6569 22 15.7712 22 12C22 8.22876 22 6.34315 20.8284 5.17157C19.6569 4 17.7712 4 14 4H10C6.22876 4 4.34315 4 3.17157 5.17157C2 6.34315 2 8.22876 2 12C2 15.7712 2 17.6569 3.17157 18.8284C4.34315 20 6.22876 20 10 20Z"
                     stroke="#6B7280"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
                   />
                 </svg>
               </div>
@@ -538,9 +533,9 @@ export default function From() {
               <path
                 d="M7.5 15L11.0858 11.4142C11.7525 10.7475 12.0858 10.4142 12.0858 10C12.0858 9.58579 11.7525 9.25245 11.0858 8.58579L7.5 5"
                 stroke="white"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </button>
@@ -654,9 +649,9 @@ export default function From() {
               <path
                 d="M7.5 15L11.0858 11.4142C11.7525 10.7475 12.0858 10.4142 12.0858 10C12.0858 9.58579 11.7525 9.25245 11.0858 8.58579L7.5 5"
                 stroke="white"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </button>
@@ -741,9 +736,9 @@ export default function From() {
               <path
                 d="M7.5 15L11.0858 11.4142C11.7525 10.7475 12.0858 10.4142 12.0858 10C12.0858 9.58579 11.7525 9.25245 11.0858 8.58579L7.5 5"
                 stroke="white"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </button>

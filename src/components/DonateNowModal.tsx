@@ -31,7 +31,7 @@ export function DonateNowModal({
   async function handleDonate() {
     await createData(
       {
-        user_Id: session?.user?.id,
+        user_Id: session?.user?.id || "unknown",
         user_name: session?.user?.name,
         amount: amount,
         payment_method: "credit_card",

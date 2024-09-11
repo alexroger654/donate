@@ -5,6 +5,9 @@ import { createData } from "@/shared/commonFunctions";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "sonner";
+import { MdOutlineMail } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa";
+import { RiLockPasswordLine } from "react-icons/ri";
 
 export default function From() {
   // =============== states =========
@@ -42,7 +45,7 @@ export default function From() {
         <label className="text-xs font-semibold px-1">Name</label>
         <div className="flex">
           <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-            <i className="mdi mdi-account-outline text-gray-400 text-lg"></i>
+            <FaRegUser />
           </div>
           <input
             type="text"
@@ -62,7 +65,7 @@ export default function From() {
         <label className="text-xs font-semibold px-1">Email</label>
         <div className="flex">
           <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-            <i className="mdi mdi-account-outline text-gray-400 text-lg"></i>
+            <MdOutlineMail />
           </div>
           <input
             type="email"
@@ -82,7 +85,7 @@ export default function From() {
         <label className="text-xs font-semibold px-1">Password</label>
         <div className="flex">
           <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-            <i className="mdi mdi-account-outline text-gray-400 text-lg"></i>
+            <RiLockPasswordLine />
           </div>
           <input
             type="password"

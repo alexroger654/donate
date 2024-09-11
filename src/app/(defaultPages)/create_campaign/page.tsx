@@ -62,8 +62,8 @@ export default function MainPage() {
                           <path
                             d="M8.5 10.25H15.25M8.5 15.25H21.5M10.6687 23.75C9.72032 23.75 9.24614 23.75 8.81368 23.916C7.17055 24.5465 4.98937 27.2387 3.24145 26.4602C2.5 26.13 2.5 24.9239 2.5 22.5116C2.5 20.6459 2.5 15.9678 2.5 11.7499C2.5 7.97876 2.5 6.09318 3.67157 4.92161C4.84314 3.75004 6.72865 3.75004 10.4997 3.75003C13.4302 3.75003 16.6564 3.75002 19.5037 3.75002C23.2725 3.75001 25.1568 3.75 26.3284 4.92158C27.5 6.09315 27.5 7.97875 27.5 11.7499C27.5 13.0803 27.5 14.4198 27.5 15.7501C27.5 19.5213 27.5 21.4069 26.3284 22.5785C25.1569 23.75 23.2712 23.75 19.5 23.75C16.5562 23.75 13.6125 23.75 10.6687 23.75Z"
                             stroke=""
-                            stroke-width="2"
-                            stroke-linecap="round"
+                            strokeWidth="2"
+                            strokeLinecap="round"
                           />
                         </svg>
                       </a>
@@ -117,9 +117,9 @@ export default function MainPage() {
                       <path
                         d="M6 15L10.5858 10.4142C11.2525 9.74755 11.5858 9.41421 12 9.41421C12.4142 9.41421 12.7475 9.74755 13.4142 10.4142L18 15"
                         stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </button>
@@ -158,9 +158,9 @@ export default function MainPage() {
                       <path
                         d="M16.5 8.25L12.4142 12.3358C11.7475 13.0025 11.4142 13.3358 11 13.3358C10.5858 13.3358 10.2525 13.0025 9.58579 12.3358L5.5 8.25"
                         stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       ></path>
                     </svg>
                   </button>
@@ -199,9 +199,9 @@ export default function MainPage() {
                       <path
                         d="M16.5 8.25L12.4142 12.3358C11.7475 13.0025 11.4142 13.3358 11 13.3358C10.5858 13.3358 10.2525 13.0025 9.58579 12.3358L5.5 8.25"
                         stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       ></path>
                     </svg>
                   </button>
@@ -240,9 +240,9 @@ export default function MainPage() {
                       <path
                         d="M16.5 8.25L12.4142 12.3358C11.7475 13.0025 11.4142 13.3358 11 13.3358C10.5858 13.3358 10.2525 13.0025 9.58579 12.3358L5.5 8.25"
                         stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       ></path>
                     </svg>
                   </button>

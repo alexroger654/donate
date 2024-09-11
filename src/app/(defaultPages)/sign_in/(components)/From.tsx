@@ -6,6 +6,8 @@ import React, { useState } from "react";
 import { toast } from "sonner";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { MdOutlineMail } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa";
 
 export default function From() {
   // =============== states =========
@@ -54,7 +56,7 @@ export default function From() {
         <label className="text-xs font-semibold px-1">Email</label>
         <div className="flex">
           <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-            <i className="mdi mdi-account-outline text-gray-400 text-lg"></i>
+            <FaRegUser />
           </div>
           <input
             type="email"
@@ -74,7 +76,7 @@ export default function From() {
         <label className="text-xs font-semibold px-1">Password</label>
         <div className="flex">
           <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-            <i className="mdi mdi-account-outline text-gray-400 text-lg"></i>
+            <MdOutlineMail />
           </div>
           <input
             type="password"

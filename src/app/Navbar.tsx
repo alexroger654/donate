@@ -18,6 +18,9 @@ export default function Navbar() {
   }, [session?.user?.id]);
 
 
+  console.log(session)
+
+
   const links = [
     {
       url: '/about_us',
@@ -79,9 +82,9 @@ export default function Navbar() {
                     stroke="currentColor"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
                       d="M4 6h16M4 12h16M4 18h16"
                     ></path>
                   </svg>
@@ -113,7 +116,7 @@ export default function Navbar() {
             {isUserLoggedIn ? (
               <>
                 <Link
-                  href={session?.user?.role == 'admin' ? "/admin_dashboard" : "/user_dashboard"}
+                  href={session?.user?.role === 'admin' || session?.user?.role === 'super_admin' ? "/admin_dashboard" : "/user_dashboard"}
                   className="uppercase font-extrabold"
                 >
                   <Avatar>
@@ -129,7 +132,7 @@ export default function Navbar() {
                 <Link
                   href="/sign_in"
                   title=""
-                  className="text-sm whitespace-nowrap font-medium text-primary-foreground transition-all duration-200 rounded focus:outline-none  hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+                  className={`text-sm whitespace-nowrap  ${pathname == '/sign_in' ? "text-primary" : 'text-primary-foreground'} transition-all duration-200 rounded leading-6 tracking-wide uppercase  font-semibold  hover:text-primary`}
                 >
                   {" "}
                   Login{" "}
