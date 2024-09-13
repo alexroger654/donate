@@ -347,8 +347,8 @@ export default function MainPage() {
                 <h3 className="text-lg font-semibold ">Top Donors</h3>
 
                 {
-                  transaction?.slice(0, 5)?.map(item => <div className="w-full px-4 py-4 flex items-center  gap-4 border rounded-lg mt-4 ">
-                    <div key={item?._id} className="bg-gray-200 flex items-center justify-center h-16 w-16 rounded-full font-extrabold ">
+                  transaction?.slice(0, 5)?.map((item, i) => <div key={i} className="w-full px-4 py-4 flex items-center  gap-4 border rounded-lg mt-4 ">
+                    <div className="bg-gray-200 flex items-center justify-center h-16 w-16 rounded-full font-extrabold ">
                       {item?.user_name?.slice(0, 2) || 'UK'}
                     </div>
                     <div>

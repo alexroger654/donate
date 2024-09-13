@@ -55,7 +55,7 @@ export function AllDonation({ campaignId }: { campaignId: string }) {
                 {transaction?.length ? (
                     <>
                         {transaction?.map((item) => (
-                            <div className="w-full px-4 py-4 flex items-center  gap-4 border rounded-lg mt-4 ">
+                            <div key={item?._id} className="w-full px-4 py-4 flex items-center  gap-4 border rounded-lg mt-4 ">
                                 <div
                                     key={item?._id}
                                     className="bg-gray-200 flex items-center justify-center h-16 w-16 rounded-full font-extrabold "
