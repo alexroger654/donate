@@ -27,6 +27,18 @@ export default function Navbar() {
       label: "About Us"
     },
     {
+      url: '/csr',
+      label: "CSR"
+    },
+    {
+      url: '/partners',
+      label: "Partners"
+    },
+    {
+      url: '/campaigns',
+      label: "Campaigns"
+    },
+    {
       url: '/monthly_donate',
       label: "monthly donate"
     },
@@ -94,14 +106,14 @@ export default function Navbar() {
             </Sheet>
           </div>
 
-          <div className="hidden lg:absolute lg:inset-y-0 lg:flex lg:items-center lg:justify-center lg:space-x-12 lg:-translate-x-1/2 lg:left-1/2">
+          <div className="hidden lg:absolute lg:inset-y-0 lg:flex lg:items-center lg:justify-center lg:space-x-5 lg:-translate-x-1/2 lg:left-1/2">
 
             {
               links.map(item => <Link
                 href={item.url}
                 key={item.url}
                 title=""
-                className={`text-sm whitespace-nowrap  ${pathname == item.url ? "text-primary" : 'text-primary-foreground'} transition-all duration-200 rounded leading-6 tracking-wide uppercase  font-semibold  hover:text-primary`}
+                className={`text-xs whitespace-nowrap  ${pathname == item.url ? "text-primary" : 'text-primary-foreground'}   transition-all duration-200 rounded leading-6 uppercase  font-bold  hover:text-primary`}
               >
                 {" "}
                 {item.label}
@@ -132,12 +144,12 @@ export default function Navbar() {
                 <Link
                   href="/sign_in"
                   title=""
-                  className={`text-sm whitespace-nowrap  ${pathname == '/sign_in' ? "text-primary" : 'text-primary-foreground'} transition-all duration-200 rounded leading-6 tracking-wide uppercase  font-semibold  hover:text-primary`}
+                  className={`text-xs whitespace-nowrap  ${pathname == '/sign_in' ? "text-primary" : 'text-primary-foreground'} transition-all duration-200 rounded leading-6 tracking-wide uppercase  font-semibold  hover:text-primary`}
                 >
                   {" "}
                   Login{" "}
                 </Link>
-                <Link href="/sign_up" title="" className="">
+                <Link href="/sign_up" title="" className="text-xs">
                   <Button>Sign Up</Button>
                 </Link>
               </>
