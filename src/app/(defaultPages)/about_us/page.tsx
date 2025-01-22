@@ -55,18 +55,27 @@ export default function AboutUsMainPage() {
                 <h2 className="font-manrope font-bold text-4xl lg:text-5xl text-primary-foreground mb-9 max-lg:text-center relative">
                   Why choose us{" "}
                 </h2>
+                <p className="font-normal text-md text-justify  text-gray-500 max-lg:text-center max-w-2xl mx-auto mb-2">
+                  The Galleria Foundation is dedicated to addressing some of the
+                  most important problems facing our society in order to truly
+                  make an impact. We use a comprehensive strategy to create
+                  long-lasting change, whether it be via empowering women,
+                  enhancing healthcare, educating children, safeguarding the
+                  environment, or aiding communities in their recovery from
+                  natural catastrophes.
+                </p>
+                <p className="font-normal text-md text-justify  text-gray-500 max-lg:text-center max-w-2xl mx-auto mb-2">
+                  We collaborate closely with nearby communities to comprehend
+                  their issues and develop solutions that have a real influence.
+                  With a proven track record, a committed staff, and total
+                  transparency, you can be sure that every donation gets to the
+                  people who need it the most.
+                </p>
                 <p className="font-normal text-md text-justify  text-gray-500 max-lg:text-center max-w-2xl mx-auto">
-                  We are the only crowdfunding platform in India that empowers
-                  you to donate directly to the specific products required by
-                  NGOs. Unlike traditional crowdfunding platforms, we offer a
-                  unique approach where you can select from a diverse range of
-                  items listed on the campaign page. This ensures your donation
-                  is used exactly as intended, providing tangible support to
-                  your chosen cause. By choosing the products you wish to fund,
-                  you have a direct impact on the needs of NGOs, making your
-                  contribution more meaningful and transparent. Join us in
-                  making a difference, one product at a time, and support your
-                  favorite cause with confidence and clarity
+                  We at Galleria Foundation are committed to working together to
+                  create a better future. Supporting us means more than just
+                  making a donation; it means changing lives and building a
+                  brighter future for everybody.
                 </p>
               </div>
             </div>
@@ -78,7 +87,7 @@ export default function AboutUsMainPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative ">
           <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-9 ">
             <div className="lg:pr-24 flex items-center">
-              <div className="data w-full">
+              <div className="data w-full" id="process">
                 <img
                   src="/assets/why_us.jpg"
                   alt="About Us tailwind page"
@@ -88,22 +97,23 @@ export default function AboutUsMainPage() {
                   Process
                 </h2>
                 <p className="font-normal text-md text-justify leading-2 text-gray-500 max-lg:text-center max-w-2xl mx-auto mb-3">
-                  {`    Our platform is safe and transparent. All products you donate
-                  are directly delivered to the NGOs by us. There are no
-                  monetary transactions with the NGOs, ensuring you know exactly
-                  what you're donating and where it's going.`}
+                  At Galleria Foundation, we treat every donation with the
+                  utmost care, ensuring it delivers the maximum impact. Once you
+                  donate, your funds are securely processed and directed to the
+                  cause or project you care about the most. Working in
+                  collaboration with trusted local partners and NGOs, we
+                  implement projects on the ground, making sure that resources
+                  reach the right people and programs are executed effectively.
                 </p>
                 <p className="font-normal text-md text-justify leading-2 text-gray-500 max-lg:text-center max-w-2xl mx-auto mb-3">
-                  {` Your experience before, during, and after making a donation is
-                  paramount to us. You will receive regular updates from the
-                  campaign you've supported, detailing the delivery,
-                  distribution, and usage of the products you've donated.`}
-                </p>
-                <p className="font-normal text-md text-justify leading-2 text-gray-500 max-lg:text-center max-w-2xl mx-auto mb-3">
-                  {` If you have any feedback, thoughts, or concerns, please don't
-                  hesitate to reach out to our support team. We're dedicated to
-                  making this the best and most seamless experience for you, so
-                  we're all ears.`}
+                  Our process doesn’t end there. We continuously monitor and
+                  evaluate each initiative to ensure your contribution is used
+                  efficiently and achieves its intended goals. Transparency is a
+                  cornerstone of our work, and we provide regular updates and
+                  detailed reports so you can see the real change your support
+                  creates. At Galleria Foundation, your generosity becomes a
+                  catalyst for meaningful and lasting transformation. Together,
+                  we turn hope into action.
                 </p>
               </div>
             </div>

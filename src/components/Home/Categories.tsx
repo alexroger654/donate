@@ -3,8 +3,11 @@ import React from "react";
 
 export default function Categories() {
   return (
-    <>
-      <section className="bg-white  max-w-screen-xl grid grid-cols-2 gap-8 lg:grid-cols-4 py-24 px-2 lg:px-16  mx-auto space-y-10 lg:space-y-0 ">
+    <section>
+      <h1 className="text-5xl font-bold text-center mt-[80px]">
+        Your Help, the Strength of Our Mission!
+      </h1>
+      <div className="bg-white  max-w-screen-xl grid grid-cols-2 gap-8 lg:grid-cols-4 py-24 px-2 lg:px-16  mx-auto space-y-10 lg:space-y-0 ">
         {/* card */}
         <Link
           href="/campaigns"
@@ -22,7 +25,7 @@ export default function Categories() {
               Donate for
             </p>
             <h4 className="font-semibold text:lg lg:text-2xl text-primary-foreground leading-tight">
-              Children Education{" "}
+              Education
             </h4>
             <p className="text-sm lg:text-lg  font-semibold text-primary">
               More details...
@@ -51,7 +54,7 @@ export default function Categories() {
               Donate for
             </p>
             <h4 className="font-semibold text:lg lg:text-2xl text-primary-foreground leading-tight">
-              Clean mineral water
+              Environment
             </h4>
             <p className="text-sm lg:text-lg  font-semibold text-primary">
               More details...
@@ -80,7 +83,7 @@ export default function Categories() {
               Donate for
             </p>
             <h4 className="font-semibold text:lg lg:text-2xl text-primary-foreground leading-tight">
-              Surgery & treatment More
+              Medical
             </h4>
             <p className="text-sm lg:text-lg  font-semibold text-primary">
               More details...
@@ -109,7 +112,7 @@ export default function Categories() {
               Donate for
             </p>
             <h4 className="font-semibold text:lg lg:text-2xl text-primary-foreground leading-tight">
-              Healthy & good food
+              Emergency
             </h4>
             <p className="text-sm lg:text-lg  font-semibold text-primary">
               More details...
@@ -121,7 +124,7 @@ export default function Categories() {
             alt=""
           />
         </Link>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

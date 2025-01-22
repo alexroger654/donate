@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import CreateModal from "./CreateModal";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { FaqSection } from "./faq-section";
 
 const GiftCardsPage = () => {
   // ============== states =================
@@ -178,7 +179,7 @@ const GiftCardsPage = () => {
       </section> */}
 
       {/* how it works ======================= */}
-      <section className="py-10 bg-white sm:py-16 lg:py-24">
+      {/* <section className="py-10 bg-white sm:py-16 lg:py-24">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
@@ -248,10 +249,13 @@ const GiftCardsPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ================ faq============= */}
-      <Faq faqType="gift_cards" />
+      <section className="max-w-7xl mx-auto p-8">
+        <Faq faqType="gift_cards" />
+        <FaqSection />
+      </section>
     </>
   );
 };

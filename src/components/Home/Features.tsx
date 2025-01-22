@@ -62,10 +62,11 @@ export default function Features() {
 
             <div className="p-4 md:p-5 space-y-4 mt-0">
               <h3 className="text-xl text-center font-semibold text-primary-foreground leading-snug tracking-wide   transition-all duration-500 cursor-pointer group-hover:text-primary">
-                SELECT PRODUCTS
+                Select type of Donation
               </h3>
               <p className="mt-2 text-center text-md font-semibold text-muted-foreground">
-                Select products and quantity you wish to donate.
+                Select the type of donation that aligns with your passion and
+                values.Your help can change lives.
               </p>
             </div>
           </div>
@@ -105,11 +106,11 @@ export default function Features() {
 
             <div className="p-4 md:p-5 space-y-4 mt-0">
               <h3 className="text-xl text-center font-semibold text-primary-foreground leading-snug tracking-wide   transition-all duration-500 cursor-pointer group-hover:text-primary">
-                DELIVERY REPORT
+                Track Your Impact
               </h3>
               <p className="mt-2 text-center text-md font-semibold text-muted-foreground">
-                We delivers the products and the organisation updates about
-                product utilization.
+                Stay updated on how your donation is making a difference in the
+                community.
               </p>
             </div>
           </div>

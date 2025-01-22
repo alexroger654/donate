@@ -2,6 +2,7 @@ import Faq from "@/components/Faq";
 import Campaigns from "@/components/Home/Campaigns";
 import PrimaryButton from "@/components/PrimaryButton";
 import React from "react";
+import { FaqSection } from "./faq-section";
 
 export default function MainPage() {
   return (
@@ -232,6 +233,7 @@ export default function MainPage() {
         </section>
         {/* ================ faq============= */}
         <Faq faqType="monthly_payment" />
+        <FaqSection />
       </section>
     </>
   );

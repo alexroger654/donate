@@ -17,51 +17,46 @@ export default function Navbar() {
     }
   }, [session?.user?.id]);
 
-
-  console.log(session)
-
-
   const links = [
     {
-      url: '/about_us',
-      label: "About Us"
+      url: "/",
+      label: "Home",
     },
     {
-      url: '/csr',
-      label: "CSR"
+      url: "/about_us",
+      label: "About Us",
     },
     {
-      url: '/partners',
-      label: "Partners"
+      url: "/csr",
+      label: "CSR",
     },
     {
-      url: '/campaigns',
-      label: "Campaigns"
+      url: "/partners",
+      label: "Partners",
     },
     {
-      url: '/monthly_donate',
-      label: "monthly donate"
+      url: "/campaigns",
+      label: "Campaigns",
     },
     {
-      url: '/gift_cards',
-      label: "Gift Cards"
+      url: "/monthly_donate",
+      label: "monthly donate",
     },
     {
-      url: '/create_campaign',
-      label: "Create Campaign"
+      url: "/gift_cards",
+      label: "Gift Cards",
     },
     {
-      url: '/blogs',
-      label: "blogs"
+      url: "/create_campaign",
+      label: "Create Campaign",
     },
-  ]
+    {
+      url: "/blogs",
+      label: "blogs",
+    },
+  ];
 
-  const pathname = usePathname()
-
-
-
-
-
+  const pathname = usePathname();
 
   //======================== render ======================================
 
@@ -70,11 +65,7 @@ export default function Navbar() {
       <div className="px-4 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between">
           <div className="flex-shrink-0">
-            <Link
-              href="/"
-              title="Home"
-              className="flex rounded outline-none "
-            >
+            <Link href="/" title="Home" className="flex rounded outline-none ">
               <img src="/assets/logo.png" alt="" className="w-28" />
               {/* <p className="text-lg font-extrabold text-primary-foreground ">
                 Galleria <span className="text-primary">Foundation</span>
@@ -107,28 +98,33 @@ export default function Navbar() {
           </div>
 
           <div className="hidden lg:absolute lg:inset-y-0 lg:flex lg:items-center lg:justify-center lg:space-x-5 lg:-translate-x-1/2 lg:left-1/2">
-
-            {
-              links.map(item => <Link
+            {links.map((item) => (
+              <Link
                 href={item.url}
                 key={item.url}
                 title=""
-                className={`text-xs whitespace-nowrap  ${pathname == item.url ? "text-primary" : 'text-primary-foreground'}   transition-all duration-200 rounded leading-6 uppercase  font-bold  hover:text-primary`}
+                className={`text-xs whitespace-nowrap  ${
+                  pathname == item.url
+                    ? "text-primary"
+                    : "text-primary-foreground"
+                }   transition-all duration-200 rounded leading-6 uppercase  font-bold  hover:text-primary`}
               >
                 {" "}
                 {item.label}
-              </Link>)
-            }
-
-
-
+              </Link>
+            ))}
           </div>
 
           <div className="hidden lg:flex lg:items-center lg:justify-center lg:space-x-10">
             {isUserLoggedIn ? (
               <>
                 <Link
-                  href={session?.user?.role === 'admin' || session?.user?.role === 'super_admin' ? "/admin_dashboard" : "/user_dashboard"}
+                  href={
+                    session?.user?.role === "admin" ||
+                    session?.user?.role === "super_admin"
+                      ? "/admin_dashboard"
+                      : "/user_dashboard"
+                  }
                   className="uppercase font-extrabold"
                 >
                   <Avatar>
@@ -144,7 +140,11 @@ export default function Navbar() {
                 <Link
                   href="/sign_in"
                   title=""
-                  className={`text-xs whitespace-nowrap  ${pathname == '/sign_in' ? "text-primary" : 'text-primary-foreground'} transition-all duration-200 rounded leading-6 tracking-wide uppercase  font-semibold  hover:text-primary`}
+                  className={`text-xs whitespace-nowrap  ${
+                    pathname == "/sign_in"
+                      ? "text-primary"
+                      : "text-primary-foreground"
+                  } transition-all duration-200 rounded leading-6 tracking-wide uppercase  font-semibold  hover:text-primary`}
                 >
                   {" "}
                   Login{" "}

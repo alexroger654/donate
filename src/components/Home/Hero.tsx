@@ -19,18 +19,17 @@ export default function Hero() {
           <h1 className="font-bold text-primary-foreground text-4xl lg:text-7xl leading-tight  ">
             <span className="relative px-1">
               <div className="absolute inset-x-0 bottom-3 h-5 transform -skew-x-12 bg-secondary " />
-              <span className="relative inline-block ">At Galleria</span>
+              <span className="relative inline-block ">
+                गैलेरिया फाउंडेशन: उज्जवल भविष्य के लिए कदम।
+              </span>
             </span>{" "}
-            Foundation, we
             <span className="font-normal">
-              {" "}
-              empower lives and strengthen communities
+              Steps Towards a Brighter Future.
             </span>
           </h1>
           <p className="text-lg text-muted-foreground mt-8">
-            We provide essential resources, education, and support. Join us in
-            creating sustainable change and a better tomorrow. Together, we can
-            make a difference.
+            We are dedicated to bringing positive change to society through
+            education, health, empowerment and service.
           </p>
         </div>
         <div className=" grid place-content-center h-full relative overflow-hidden">
