@@ -28,10 +28,10 @@ export default function Hero() {
                                     avoiding cash transactions
                                 </span>
                             </h1>
-                            <p className="text-lg text-muted-foreground max-w-4xl mt-10">Ensuring Transparency in Fund Utilization: We focus on delivering essential relief materials directly to those in need, avoiding cash transactions to maintain accountability and trust</p>
+                            <p className="text-lg text-muted-foreground max-w-4xl mt-10">Creating Sustainable Impact Through Meaningful CSR Partnerships</p>
                             <div className="flex flex-col lg:flex-row items-center justify-center gap-5 mt-5">
                                 <Button size='lg' className='font-semibold'>Get Started</Button>
-                                <Button variant='outline' className='border-primary text-primary font-semibold' size='lg'>Get Started</Button>
+                                <Button variant='outline' className='border-primary text-primary font-semibold' size='lg'>Connect with us</Button>
 
 
                             </div>

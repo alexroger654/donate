@@ -4,7 +4,22 @@ import React from "react";
 export default function Categories() {
   return (
     <>
-      <section className="bg-white  max-w-screen-xl grid grid-cols-2 gap-8 lg:grid-cols-4 py-24 px-2 lg:px-16  mx-auto space-y-10 lg:space-y-0 ">
+      <div className="container mx-auto pt-14">
+        <div className="w-full lg:w-[60%] mx-auto">
+          <p className="text-xl tracking-wider  font-bold text-center text-muted-foreground mt-8">
+            Category
+          </p>
+          <h1 className="font-semibold tracking-wider  text-center text-primary-foreground text-3xl lg:text-5xl leading-tight  ">
+            Your Help, the Strength
+            <span className="relative px-1">
+              <div className="absolute inset-x-0 bottom-2 h-3 transform -skew-x-12 bg-secondary " />
+              <span className="relative inline-block ">of Our </span>
+            </span>{" "}
+            Mission!{" "}
+          </h1>
+        </div>
+      </div>
+      <section className="bg-white  mb-14  max-w-screen-xl grid grid-cols-2 gap-8 lg:grid-cols-4 py-24 px-2 lg:px-16  mx-auto space-y-10 lg:space-y-0 ">
         {/* card */}
         <Link
           href="/campaigns"

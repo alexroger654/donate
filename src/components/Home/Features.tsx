@@ -15,15 +15,15 @@ export default function Features() {
       <div className="w-full h-full max-w-screen-xl mx-auto">
         <div className="w-full lg:w-[60%] mx-auto">
           <p className="text-xl tracking-wider  font-bold text-center text-muted-foreground mt-8">
-            How It Works
+            Select type of Donation
           </p>
           <h1 className="font-semibold tracking-wider  text-center text-primary-foreground text-3xl lg:text-5xl leading-tight  ">
-            Founded to empower all of humanity,
+            Select the type of donation that aligns
             <span className="relative px-1">
               <div className="absolute inset-x-0 bottom-2 h-3 transform -skew-x-12 bg-secondary " />{" "}
-              <span className="relative inline-block ">we strive</span>
+              <span className="relative inline-block "> with your passion</span>
             </span>{" "}
-            for greatness.
+            and values.Your help can change lives
           </h1>
         </div>
         <div className="grid lg:grid-cols-4 my-12 gap-8">

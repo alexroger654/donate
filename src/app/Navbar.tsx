@@ -23,6 +23,10 @@ export default function Navbar() {
 
   const links = [
     {
+      url: '/',
+      label: "Home"
+    },
+    {
       url: '/about_us',
       label: "About Us"
     },

@@ -32,7 +32,7 @@ export default function Status() {
                             <div className="flex items-center">
                                 <h3 className="relative ml-2 inline-block text-primary-foreground text-4xl font-bold leading-none">
                                     <span className="absolute -top-2 rounded-full h-1  w-[60%] bg-secondary"></span>
-                                    328
+                                    200+
                                 </h3>
                                 <span className="ml-3 text-base  capitalize text-muted-foreground font-semibold">Districts</span>
                             </div>
@@ -45,7 +45,7 @@ export default function Status() {
                             <div className="flex items-center">
                                 <h3 className="relative ml-2 text-primary-foreground inline-block text-4xl font-bold leading-none">
                                     <span className="absolute -top-2 rounded-full h-1  w-[60%] bg-secondary"></span>
-                                    16
+                                    16+
                                 </h3>
                                 <span className="ml-3 text-base  capitalize text-muted-foreground font-semibold">Total NGOs</span>
                             </div>
@@ -58,7 +58,7 @@ export default function Status() {
                             <div className="flex items-center">
                                 <h3 className="relative ml-2 text-primary-foreground inline-block text-4xl font-bold leading-none">
                                     <span className="absolute -top-2 rounded-full h-1  w-[60%] bg-secondary"></span>
-                                    41+
+                                    15+
                                 </h3>
                                 <span className="ml-3 text-base  capitalize text-muted-foreground font-semibold">States</span>
                             </div>
@@ -70,7 +70,7 @@ export default function Status() {
                             <div className="flex items-center">
                                 <h3 className="relative ml-2 text-primary-foreground inline-block text-4xl font-bold leading-none">
                                     <span className="absolute -top-2 rounded-full h-1  w-[60%] bg-secondary"></span>
-                                    70+
+                                    50+
                                 </h3>
                                 <span className="ml-3 text-base  capitalize text-muted-foreground font-semibold">Relief projects</span>
                             </div>

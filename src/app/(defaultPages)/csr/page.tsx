@@ -17,7 +17,7 @@ export default function Page() {
             <HowWeWork />
             <Status />
             <Team />
-            <FounderMessage />
+            {/* <FounderMessage /> */}
             <Partners />
             <Testimonial />
         </div>
