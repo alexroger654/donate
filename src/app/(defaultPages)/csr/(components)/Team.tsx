@@ -27,7 +27,7 @@ export default function Team() {
             </div>
 
             <div className="container mx-auto 2xl:px-12">
-                <img className="w-full mt-6" src="https://cdn.rareblocks.xyz/collection/celebration/images/team/4/group-of-people.png" alt="" />
+                <img className="w-full mt-6" src="/assets/family.jpg" alt="" />
             </div>
         </section>
 

@@ -1,16 +1,18 @@
 import React from "react";
 import { LuCheckCircle } from "react-icons/lu";
+import Gallery from "./Gallery";
 
 export default function AboutUs() {
   return (
     <div className="py-24 lg:px-16 px-4 max-w-screen-xl mx-auto">
       <div className="grid gap-5 row-gap-10 lg:grid-cols-2">
         <div>
-          <img
+          <Gallery />
+          {/* <img
             className="object-cover w-full  rounded  h-full"
             src="/assets/about.png"
             alt=""
-          />
+          /> */}
         </div>
         <div className="flex flex-col justify-center">
           <div className="max-w-xl mb-6 space-y-6">
