@@ -1,22 +1,18 @@
 "use client";
 
 import Loading from "@/components/Loading";
-import { createData } from "@/shared/commonFunctions";
-import React, { useState } from "react";
+import { useState } from "react";
 import { toast } from "sonner";
-import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { MdOutlineMail } from "react-icons/md";
+import { signIn } from "next-auth/react";
+import { MdOutlineMail, MdLockOutline } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
 
-export default function From() {
-  // =============== states =========
+export default function LoginForm() {
   const [loading, setLoading] = useState(false);
-  const [userData, setUserData] = useState({
-    email: "",
-    password: "",
-  });
+  const [userData, setUserData] = useState({ email: "", password: "" });
   const router = useRouter();
+
   async function handleSignIn() {
     setLoading(true);
     try {
@@ -26,83 +22,87 @@ export default function From() {
         password: userData.password,
       });
 
-      console.log(result);
-
       if (result.error) {
-        toast.error("invalid credentials");
+        toast.error("Invalid credentials");
       } else {
         toast.success("Successfully signed in!");
         router?.push("/");
       }
     } catch (error) {
-      toast.error("An error occurred during sign in.");
+      toast.error("An error occurred during sign-in.");
     } finally {
       setLoading(false);
     }
   }
 
-  if (loading) {
-    return <Loading />;
-  }
+  if (loading) return <Loading />;
 
   return (
-    <div className="w-full md:w-1/2 py-10 px-5 md:px-10 bg-white">
-      <div className="text-center mb-10">
-        <h1 className="font-bold text-3xl text-gray-900">LOG IN</h1>
-        <p>Enter your information to register</p>
+    <div className="w-full md:w-1/2 py-10 px-5 md:px-10 bg-white shadow-md rounded-lg">
+      <div className="text-center mb-6">
+        <h1 className="font-bold text-3xl text-gray-900">Log In</h1>
+        <p className="text-gray-500">Enter your credentials to access your account</p>
       </div>
 
-      <div className="w-full px-3 mb-5">
-        <label className="text-xs font-semibold px-1">Email</label>
-        <div className="flex">
-          <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-            <FaRegUser />
+      <div className="space-y-4">
+        {/* Email Input */}
+        <div>
+          <label className="text-sm font-semibold">Email</label>
+          <div className="relative mt-1">
+            <FaRegUser className="absolute left-3 top-3 text-gray-400" />
+            <input
+              type="email"
+              value={userData.email}
+              onChange={(e) => setUserData({ ...userData, email: e.target.value })}
+              className="w-full pl-10 pr-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary outline-none"
+              placeholder="example@domain.com"
+              required
+            />
           </div>
-          <input
-            type="email"
-            defaultValue={userData.email}
-            onChange={(e) =>
-              setUserData({
-                ...userData,
-                email: e.target.value,
-              })
-            }
-            className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-primary"
-            placeholder="John@g.com"
-          />
         </div>
-      </div>
-      <div className="w-full px-3 mb-5">
-        <label className="text-xs font-semibold px-1">Password</label>
-        <div className="flex">
-          <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-            <MdOutlineMail />
-          </div>
-          <input
-            type="password"
-            defaultValue={userData.password}
-            onChange={(e) =>
-              setUserData({
-                ...userData,
-                password: e.target.value,
-              })
-            }
-            className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-primary"
-            placeholder="******"
-          />
-        </div>
-      </div>
 
-      <div className="flex -mx-3">
-        <div className="w-full px-3 mb-5">
+        {/* Password Input */}
+        <div>
+          <label className="text-sm font-semibold">Password</label>
+          <div className="relative mt-1">
+            <MdLockOutline className="absolute left-3 top-3 text-gray-400" />
+            <input
+              type="password"
+              value={userData.password}
+              onChange={(e) => setUserData({ ...userData, password: e.target.value })}
+              className="w-full pl-10 pr-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary outline-none"
+              placeholder="••••••••"
+              required
+            />
+          </div>
+        </div>
+
+        {/* Forgot Password & Sign Up */}
+        <div className="flex justify-between text-sm text-gray-500">
           <button
             type="button"
-            onClick={handleSignIn}
-            className="block w-full max-w-xs mx-auto bg-primary  text-white rounded-lg px-3 py-3 font-semibold"
+            className="hover:text-primary transition"
+            onClick={() => router.push("/forgot-password")}
           >
-            Login
+            Forgot Password?
+          </button>
+          <button
+            type="button"
+            className="hover:text-primary transition"
+            onClick={() => router.push("/sign_up")}
+          >
+            Create an Account
           </button>
         </div>
+
+        {/* Login Button */}
+        <button
+          type="button"
+          onClick={handleSignIn}
+          className="w-full bg-primary text-white rounded-lg px-4 py-3 font-semibold hover:bg-opacity-90 transition"
+        >
+          Log In
+        </button>
       </div>
     </div>
   );
