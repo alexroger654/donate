@@ -33,7 +33,7 @@ export default function Testimonial() {
           <figure className="relative bg-white dark:bg-gray-800 w-full h-auto rounded-xl shadow-md flex flex-col  items-center p-5">
             <div className="absolute -top-7 left-1/2 -translate-x-1/2 bg-white dark:bg-slate-800  rounded-full w-16 h-16 flex items-center justify-center">
               <img
-                src="/testimonials/avatar13.jpg"
+                src="/assets/noUser.webp"
                 alt=""
                 className="h-12 w-12 rounded-full "
               />
@@ -51,7 +51,7 @@ export default function Testimonial() {
           <figure className="relative bg-white dark:bg-gray-800 w-full h-auto rounded-xl shadow-md flex flex-col  items-center p-5">
             <div className="absolute -top-7 left-1/2 -translate-x-1/2 bg-white dark:bg-slate-800  rounded-full w-16 h-16 flex items-center justify-center">
               <img
-                src="/testimonials/avatar24.jpg"
+                src="/assets/noUser.webp"
                 alt=""
                 className="h-12 w-12 rounded-full "
               />
@@ -69,7 +69,7 @@ export default function Testimonial() {
           <figure className="relative bg-white dark:bg-gray-800 w-full h-auto rounded-xl shadow-md flex flex-col  items-center p-5">
             <div className="absolute -top-7 left-1/2 -translate-x-1/2 bg-white dark:bg-slate-800  rounded-full w-16 h-16 flex items-center justify-center">
               <img
-                src="/testimonials/avatar23.jpg"
+                src="/assets/noUser.webp"
                 alt=""
                 className="h-12 w-12 rounded-full "
               />

@@ -49,7 +49,7 @@ export default function WhyUs() {
                     <h4 className="text-gray-900 text-2xl font-bold font-manrope leading-9">
                       5+ Years
                     </h4>
-                    <p className="text-gray-500 text-base font-normal leading-relaxed">
+                    <p className="text-gray-500 text-sm font-normal leading-relaxed">
                       Influencing Digital Landscapes Together
                     </p>
                   </div>
@@ -57,7 +57,7 @@ export default function WhyUs() {
                     <h4 className="text-gray-900 text-2xl font-bold font-manrope leading-9">
                       50+ Projects
                     </h4>
-                    <p className="text-gray-500 text-base font-normal leading-relaxed">
+                    <p className="text-gray-500 text-sm  font-normal leading-relaxed">
                       Excellence Achieved Through Success
                     </p>
                   </div>
@@ -67,7 +67,7 @@ export default function WhyUs() {
                     <h4 className="text-gray-900 text-2xl font-bold font-manrope leading-9">
                       100+ activity
                     </h4>
-                    <p className="text-gray-500 text-base font-normal leading-relaxed">
+                    <p className="text-gray-500 text-sm  font-normal leading-relaxed">
                       Performed
                     </p>
                   </div>
@@ -75,7 +75,7 @@ export default function WhyUs() {
                     <h4 className="text-gray-900 text-2xl font-bold font-manrope leading-9">
                       99% Happy Clients
                     </h4>
-                    <p className="text-gray-500 text-base font-normal leading-relaxed">
+                    <p className="text-gray-500 text-sm  font-normal leading-relaxed">
                       Mirrors our Focus on Client Satisfaction.
                     </p>
                   </div>

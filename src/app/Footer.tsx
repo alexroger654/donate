@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* <!--Grid--> */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-8 py-10 max-sm:max-w-sm max-sm:mx-auto gap-y-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-8 py-10 max-sm:max-w-sm max-sm:mx-auto gap-y-8">
           <div className="col-span-full mb-10 lg:col-span-2 lg:mb-0">
             <img
               src="/assets/logo.png"
@@ -77,8 +77,9 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+
           {/* <!--End Col--> */}
-          <div className="lg:mx-auto text-left ">
+          {/* <div className="lg:mx-auto text-left ">
             <h4 className="text-lg text-gray-900 font-medium mb-7">Learn</h4>
             <ul className="text-base  transition-all duration-500">
               <li className="mb-4">
@@ -123,14 +124,14 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
           {/* <!--End Col--> */}
           <div className="lg:mx-auto text-left ">
             <h4 className="text-lg text-gray-900 font-medium mb-7">Legal</h4>
             <ul className="text-base  transition-all duration-500">
               <li className="mb-4">
                 <Link
-                  href="/gift_cards"
+                  href="/terms"
                   title=""
                   className="text-muted-foreground hover:text-primary-foreground "
                 >
@@ -140,7 +141,7 @@ export default function Footer() {
               </li>
               <li className="mb-4">
                 <Link
-                  href="/gift_cards"
+                  href="/privacy"
                   title=""
                   className="text-muted-foreground hover:text-primary-foreground "
                 >
@@ -151,6 +152,7 @@ export default function Footer() {
             </ul>
           </div>
 
+
           {/* <!--End Col--> */}
           <div className="lg:mx-auto text-left">
             <div className="w-full px-4 sm:w-1/2 lg:w-full">
@@ -159,13 +161,13 @@ export default function Footer() {
                   Contact
                 </h4>
                 <p className="text-muted-foreground whitespace-normal hover:text-primary-foreground text-base mb-4">
-                  Office Address: 1272, btm 4 stage , India
+                  Bangalore : #7, 2nd Main, 3rd Phase, JP Nagar, Bangalore - 560078
                 </p>
                 <p className="text-muted-foreground whitespace-normal hover:text-primary-foreground text-base mb-4">
-                  Phone: +91 805050095
+                  Phone: +91 9880099020
                 </p>
-                <p className="text-muted-foreground  hover:text-primary-foreground text-base ">
-                  Email: info@galleria.foundation
+                <p className="text-muted-foreground  hover:text-primary-foreground text-base lg:text-nowrap ">
+                  Email: help@galleria.foundation, <br />csr@galleria.foundation
                 </p>
               </div>
             </div>
@@ -252,7 +254,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </div >
+    </footer >
   );
 }
