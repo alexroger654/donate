@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { AlertCircle, CheckCircle } from "lucide-react";
+import Loading from "@/components/Loading";
 
-export default function ResetPassword() {
+function ResetPasswordContent() {
     const searchParams = useSearchParams();
     const token = searchParams.get("token");
 
@@ -95,5 +96,12 @@ export default function ResetPassword() {
                 )}
             </div>
         </section>
+    );
+}
+export default function ResetPassword() {
+    return (
+        <Suspense fallback={<Loading />}>
+            <ResetPasswordContent />
+        </Suspense>
     );
 }
