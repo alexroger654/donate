@@ -10,7 +10,6 @@ export default function Contact() {
     name: "",
     email: "",
     phone: "",
-    company: "",
     message: "",
   });
   const [loading, setLoading] = useState(false);
@@ -33,7 +32,6 @@ export default function Contact() {
         name: "",
         email: "",
         phone: "",
-        company: "",
         message: "",
       });
     } catch (error) {
@@ -114,7 +112,7 @@ export default function Contact() {
                     className="mt-2.5 block w-full px-4 py-4 text-black border border-gray-200 rounded-md focus:outline-none"
                   />
                 </div>
-
+{/* 
                 <div>
                   <label className="text-base font-medium text-gray-900">
                     Company name
@@ -127,7 +125,7 @@ export default function Contact() {
                     placeholder="Enter your company name"
                     className="mt-2.5 block w-full px-4 py-4 text-black border border-gray-200 rounded-md focus:outline-none"
                   />
-                </div>
+                </div> */}
 
                 <div className="sm:col-span-2">
                   <label className="text-base font-medium text-gray-900">
