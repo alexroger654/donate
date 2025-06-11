@@ -1,6 +1,49 @@
-import React from "react";
+'use client'
+
+import { createData } from "@/shared/commonFunctions";
+import React, { useState } from "react";
+import { toast } from "sonner";
+
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form Submitted:", formData);
+    try {
+      setLoading(true);
+      await createData(formData, "leads/create", setLoading);
+      toast.success("Data submitted successfully");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Submission failed", error);
+      toast.error("Submission failed");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section
       style={{
@@ -22,184 +65,95 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto mt-12 sm:mt-16">
-          <div className="grid grid-cols-1 gap-6 px-8 text-center md:px-0 md:grid-cols-3">
-            <div className="overflow-hidden bg-white rounded-xl">
-              <div className="p-6">
-                <svg
-                  className="flex-shrink-0 w-10 h-10 mx-auto text-gray-400"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1"
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+        <div className="mt-6 overflow-hidden bg-white rounded-xl">
+          <div className="px-6 py-12 sm:p-12">
+            <h3 className="text-3xl font-semibold text-center text-gray-900">
+              Send us a message
+            </h3>
+
+            <form onSubmit={handleSubmit} className="mt-14">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
+                <div>
+                  <label className="text-base font-medium text-gray-900">
+                    Your name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Enter your full name"
+                    className="mt-2.5 block w-full px-4 py-4 text-black border border-gray-200 rounded-md focus:outline-none"
                   />
-                </svg>
-                <p className="mt-6 text-lg font-medium text-gray-900">
-                  +91 9880099020
-                </p>
-              </div>
-            </div>
-
-            <div className="overflow-hidden bg-white rounded-xl">
-              <div className="p-6">
-                <svg
-                  className="flex-shrink-0 w-10 h-10 mx-auto text-gray-400"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                <p className="mt-6 text-lg font-medium text-gray-900">
-                  help@galleria.foundation
-                </p>
-                <p className="mt-1 text-lg font-medium text-gray-900">
-                  csr@galleria.foundation
-                </p>
-              </div>
-            </div>
-
-            <div className="overflow-hidden bg-white rounded-xl">
-              <div className="p-6">
-                <svg
-                  className="flex-shrink-0 w-10 h-10 mx-auto text-gray-400"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-                <p className="mt-6 text-lg font-medium leading-relaxed text-gray-900">
-                  Bangalore : #7, 2nd Main, 3rd Phase, JP Nagar, Bangalore -
-                  560078
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-6 overflow-hidden bg-white rounded-xl">
-            <div className="px-6 py-12 sm:p-12">
-              <h3 className="text-3xl font-semibold text-center text-gray-900">
-                Send us a message
-              </h3>
-
-              <form action="#" method="POST" className="mt-14">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
-                  <div>
-                    <label className="text-base font-medium text-gray-900">
-                      {" "}
-                      Your name{" "}
-                    </label>
-                    <div className="mt-2.5 relative">
-                      <input
-                        type="text"
-                        name=""
-                        id=""
-                        placeholder="Enter your full name"
-                        className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-primary caret-primary"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="text-base font-medium text-gray-900">
-                      {" "}
-                      Email address{" "}
-                    </label>
-                    <div className="mt-2.5 relative">
-                      <input
-                        type="email"
-                        name=""
-                        id=""
-                        placeholder="Enter your full name"
-                        className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-primary caret-primary"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="text-base font-medium text-gray-900">
-                      {" "}
-                      Phone number{" "}
-                    </label>
-                    <div className="mt-2.5 relative">
-                      <input
-                        type="tel"
-                        name=""
-                        id=""
-                        placeholder="Enter your full name"
-                        className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-primary caret-primary"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="text-base font-medium text-gray-900">
-                      {" "}
-                      Company name{" "}
-                    </label>
-                    <div className="mt-2.5 relative">
-                      <input
-                        type="text"
-                        name=""
-                        id=""
-                        placeholder="Enter your full name"
-                        className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-primary caret-primary"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="sm:col-span-2">
-                    <label className="text-base font-medium text-gray-900">
-                      {" "}
-                      Message{" "}
-                    </label>
-                    <div className="mt-2.5 relative">
-                      <textarea
-                        name=""
-                        id=""
-                        placeholder=""
-                        className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md resize-y focus:outline-none focus:border-primary caret-primary"
-                        rows={4}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="sm:col-span-2">
-                    <button
-                      type="submit"
-                      className="inline-flex items-center justify-center w-full px-4 py-4 mt-2 text-base font-semibold text-white transition-all duration-200 bg-primary border border-transparent rounded-md focus:outline-none hover:bg-primary focus:bg-primary"
-                    >
-                      Send
-                    </button>
-                  </div>
                 </div>
-              </form>
-            </div>
+
+                <div>
+                  <label className="text-base font-medium text-gray-900">
+                    Email address
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Enter your email"
+                    className="mt-2.5 block w-full px-4 py-4 text-black border border-gray-200 rounded-md focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-base font-medium text-gray-900">
+                    Phone number
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Enter your phone number"
+                    className="mt-2.5 block w-full px-4 py-4 text-black border border-gray-200 rounded-md focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-base font-medium text-gray-900">
+                    Company name
+                  </label>
+                  <input
+                    type="text"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    placeholder="Enter your company name"
+                    className="mt-2.5 block w-full px-4 py-4 text-black border border-gray-200 rounded-md focus:outline-none"
+                  />
+                </div>
+
+                <div className="sm:col-span-2">
+                  <label className="text-base font-medium text-gray-900">
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Type your message"
+                    rows={4}
+                    className="mt-2.5 block w-full px-4 py-4 text-black border border-gray-200 rounded-md resize-y focus:outline-none"
+                  />
+                </div>
+
+                <div className="sm:col-span-2">
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full px-4 py-4 mt-2 text-base font-semibold text-white bg-primary rounded-md disabled:opacity-50"
+                  >
+                    {loading ? "Sending..." : "Send"}
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
